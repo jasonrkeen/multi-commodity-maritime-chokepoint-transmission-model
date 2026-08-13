@@ -2,6 +2,14 @@
 
 All notable changes are documented here. The project follows semantic versioning while it remains pre-1.0.
 
+## [Unreleased]
+
+### Changed
+
+- Widened supported pandas versions to include the tested 3.x series while retaining pandas 2.1 compatibility.
+- Added a Python 3.11 CI job that exercises the declared minimum NumPy, pandas, and Matplotlib versions.
+- Configured Dependabot to preserve compatible dependency ranges and widen them only when necessary.
+
 ## [0.5.0] - 2026-08-12
 
 ### Added
