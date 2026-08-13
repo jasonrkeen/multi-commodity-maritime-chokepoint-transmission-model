@@ -47,3 +47,36 @@ jobs:
           --days 30
           --simulations 0
           --output-dir "${{ runner.temp }}/chokepoint-smoke-output"
+  minimum-dependencies:
+    name: Minimum supported dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install minimum supported dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "numpy==1.26.0" "pandas==2.1.0" "matplotlib==3.8.0"
+
+      - name: Run unit tests
+        env:
+          MPLBACKEND: Agg
+        run: python -m unittest discover -s tests -v
+
+      - name: Run deterministic smoke test
+        env:
+          MPLBACKEND: Agg
+        run: >-
+          python main.py
+          --scenario sensor_fused_hormuz
+          --days 30
+          --simulations 0
+          --output-dir "${{ runner.temp }}/chokepoint-minimum-dependency-output"
