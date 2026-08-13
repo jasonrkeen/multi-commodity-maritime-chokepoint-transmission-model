@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this model, please cite the software release."
+title: "Multi-Commodity Maritime Chokepoint Transmission Model"
+type: software
+version: 0.5.0
+date-released: 2026-08-12
+authors:
+  - family-names: Keen
+    given-names: Jason
+license: MIT
+abstract: >-
+  An open-source scenario and Monte Carlo model for tracing immediate and
+  lagged economic transmission from maritime chokepoint disruption through
+  crude oil, LNG, fertilizer, and helium, with crude-grade segmentation and
+  conditional ecological externalities.
+keywords:
+  - maritime chokepoints
+  - geopolitical risk
+  - energy markets
+  - supply chains
+  - Monte Carlo simulation

@@ -1,0 +1,21 @@
+commodity,chokepoint,route_group,route_share_global,reroute_modifier,confidence,parameter_status,notes
+Crude oil,Strait of Hormuz,Persian Gulf exit,0.20,1.00,high,sourced_anchor,Approximate share of global petroleum liquids consumption
+Crude oil,Bab el-Mandeb,Red Sea corridor,0.085,1.00,medium,sourced_anchor,Pre-disruption seaborne oil exposure used for stress testing
+Crude oil,Suez Canal/SUMED,Red Sea corridor,0.065,1.00,medium,sourced_anchor,Serial exposure aggregated by maximum within route group
+Crude oil,Strait of Malacca,Southeast Asia corridor,0.23,0.90,medium,analyst_assumption,Global share approximation based on EIA transit volumes
+Crude oil,Panama Canal,Americas corridor,0.02,1.00,low,analyst_assumption,Scenario input pending commodity-level Canal data
+LNG,Strait of Hormuz,Persian Gulf exit,0.20,0.25,high,sourced_anchor,Primarily Qatar exports with limited equivalent rerouting
+LNG,Bab el-Mandeb,Red Sea corridor,0.08,1.05,medium,sourced_anchor,First-half 2023 share retained as pre-shock stress exposure
+LNG,Suez Canal/SUMED,Red Sea corridor,0.08,1.05,medium,sourced_anchor,Serial exposure aggregated by maximum within route group
+LNG,Strait of Malacca,Southeast Asia corridor,0.18,0.85,low,analyst_assumption,Requires origin-destination LNG cargo validation
+LNG,Panama Canal,Americas corridor,0.06,1.00,low,analyst_assumption,Primarily US to Asia route exposure
+Fertilizer,Strait of Hormuz,Persian Gulf exit,0.24,0.45,medium,sourced_anchor,Middle East share of global urea exports used as upper-bound aggregate proxy
+Fertilizer,Bab el-Mandeb,Red Sea corridor,0.12,1.00,low,analyst_assumption,Aggregate fertilizer and feedstock routing proxy
+Fertilizer,Suez Canal/SUMED,Red Sea corridor,0.10,1.00,low,analyst_assumption,Serial exposure aggregated by maximum within route group
+Fertilizer,Strait of Malacca,Southeast Asia corridor,0.10,0.90,low,analyst_assumption,Aggregate fertilizer routing proxy
+Fertilizer,Panama Canal,Americas corridor,0.05,1.00,low,analyst_assumption,Aggregate fertilizer routing proxy
+Helium,Strait of Hormuz,Persian Gulf exit,0.35,0.20,medium,analyst_assumption,Qatar production and exports imply high exposure; validate with shipment data
+Helium,Bab el-Mandeb,Red Sea corridor,0.10,1.00,low,analyst_assumption,European-bound Middle East helium can divert around Cape
+Helium,Suez Canal/SUMED,Red Sea corridor,0.10,1.00,low,analyst_assumption,Serial exposure aggregated by maximum within route group
+Helium,Strait of Malacca,Southeast Asia corridor,0.15,0.70,low,analyst_assumption,Asian destination and serial-route overlap require OD data
+Helium,Panama Canal,Americas corridor,0.03,1.00,low,analyst_assumption,North American containerized supply routing proxy

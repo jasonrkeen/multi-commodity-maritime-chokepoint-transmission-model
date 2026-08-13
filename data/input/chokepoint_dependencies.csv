@@ -1,0 +1,4 @@
+source_chokepoint,target_chokepoint,transmission_weight,lag_days,mechanism,parameter_status
+Strait of Hormuz,Bab el-Mandeb,0.35,5,Rerouting congestion security spillover and naval posture,analyst_assumption
+Bab el-Mandeb,Suez Canal/SUMED,0.65,2,Serial corridor dependency and northbound traffic displacement,analyst_assumption
+Strait of Hormuz,Suez Canal/SUMED,0.20,7,Delayed cargo displacement and regional insurance repricing,analyst_assumption

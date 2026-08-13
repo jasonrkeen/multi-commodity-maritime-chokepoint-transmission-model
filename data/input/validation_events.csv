@@ -1,0 +1,4 @@
+validation_id,metric,baseline_value,observed_value,unit,observation_date,source_id,model_use
+HORMUZ_2026_BRENT,Brent spot price,72,117,USD_per_barrel,2026-04,EIA_STEO_2026_08,External price-path plausibility band
+HORMUZ_2026_DEMAND,Global oil demand change,-0.0,-1.2,million_barrels_per_day_annual_average,2026,EIA_STEO_2026_08,Dynamic demand-response calibration anchor
+HORMUZ_2026_FERTILIZER,Fertilizer price change,0,35,percent_year_over_year_first_five_months,2026-05,WB_FOOD_SECURITY_2026,Fertilizer price and seasonal transmission anchor

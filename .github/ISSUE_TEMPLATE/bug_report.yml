@@ -1,0 +1,41 @@
+name: Bug report
+description: Report reproducible incorrect behavior or a failed model run.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include credentials, private correspondence, restricted data, or non-public vessel information.
+  - type: input
+    id: version
+    attributes:
+      label: Model version
+      placeholder: 0.5.0
+    validations:
+      required: true
+  - type: input
+    id: command
+    attributes:
+      label: Command or entry point
+      description: Redact local usernames and sensitive paths.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, Python version, and dependency versions.
+    validations:
+      required: true

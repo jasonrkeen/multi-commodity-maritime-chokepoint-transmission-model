@@ -1,0 +1,7 @@
+scenario,sour_dependent_market_share,alternative_grade_compatibility_share,segmented_channel_share,panic_premium_insulation_share,reassigned_heavy_sour_share,sour_spread_sensitivity_usd,sour_spread_cap_usd,logistics_friction_premium_usd,parameter_status,notes
+hormuz_30d_severe,0.65,0.25,0.10,0.70,0.025,240,55,8,analyst_assumption,Illustrative sour-complex segmentation; reassigned barrels reduce the regional grade gap but are not added to global supply
+red_sea_60d_diversion,0.50,0.60,0.02,0.40,0.010,160,30,6,analyst_assumption,Lower grade mismatch with route friction retained
+compound_hormuz_red_sea,0.65,0.22,0.12,0.75,0.030,260,60,10,analyst_assumption,Compound disruption with segmented discounted channels and limited compatible replacement grades
+multi_node_stress,0.70,0.18,0.10,0.70,0.020,280,70,12,analyst_assumption,Severe illustrative grade mismatch and logistics friction
+sensor_fused_hormuz,0.65,0.25,0.12,0.75,0.025,240,55,8,analyst_assumption,Sensor-corrected physical flow is paired with a separate sour-complex price path
+compound_hormuz_red_sea_ecological,0.65,0.22,0.12,0.75,0.030,260,60,10,analyst_assumption,Same market structure as the compound path plus a conditional ecological incident branch

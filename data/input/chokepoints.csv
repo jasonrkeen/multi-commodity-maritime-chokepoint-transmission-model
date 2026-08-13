@@ -1,0 +1,6 @@
+chokepoint,base_reroute_share,reroute_ramp_days,reroute_cost_uplift_pct,insurance_uplift_pct,notes
+Strait of Hormuz,0.00,14,0.35,0.08,Pipeline bypass is commodity-specific and modeled explicitly in market_balancing.csv; no like-for-like maritime alternative exists for Qatar LNG or helium
+Bab el-Mandeb,0.82,10,0.28,0.06,Cape of Good Hope diversion is feasible but longer and more costly
+Suez Canal/SUMED,0.85,8,0.24,0.05,Serial Red Sea corridor node with Cape diversion and limited SUMED substitution
+Strait of Malacca,0.55,21,0.32,0.05,Sunda and Lombok alternatives have capacity draft and distance constraints
+Panama Canal,0.75,12,0.22,0.02,Cape Horn Suez and land-bridge alternatives vary by cargo and origin destination

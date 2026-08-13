@@ -1,0 +1,4 @@
+scenario,channel,start_day,duration_days,severity,lag_onset_days,adjustment_days,recovery_half_life_days,annual_value_at_risk_usd,confidence,parameter_status,notes
+compound_hormuz_red_sea_ecological,Desalination continuity,0,60,0.35,7,14,365,15000000000,0.25,analyst_assumption,Conditional intake disruption and treatment-cost pathway; not an observed incident
+compound_hormuz_red_sea_ecological,Fisheries and coastal livelihoods,0,90,0.30,90,90,1825,25000000000,0.20,analyst_assumption,Delayed spawning recruitment and coastal-economy pathway; not an observed incident
+compound_hormuz_red_sea_ecological,Remediation and shoreline restoration,0,120,0.40,30,180,3650,12000000000,0.15,analyst_assumption,Long-duration restoration-spending pathway; not an observed incident

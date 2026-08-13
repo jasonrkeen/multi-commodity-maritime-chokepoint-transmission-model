@@ -1,0 +1,25 @@
+scenario,commodity,bypass_capacity_share,bypass_ramp_days,strategic_release_share,strategic_release_start_day,strategic_release_ramp_days,strategic_release_duration_days,strategic_release_decay_half_life_days,external_supply_response_share,external_supply_response_start_day,external_supply_response_ramp_days,external_supply_response_decay_half_life_days,parameter_status,notes
+hormuz_30d_severe,Crude oil,0.026,10,0.015,10,7,60,14,0.010,21,30,45,sourced_anchor_analyst_timing,EIA anchors about 2.6 mbd available Saudi and UAE bypass; release and external-response timing remain scenario assumptions
+hormuz_30d_severe,LNG,0.000,1,0.000,0,1,0,1,0.008,30,45,60,analyst_assumption,No like-for-like Hormuz bypass or strategic LNG reserve; delayed external cargo response only
+hormuz_30d_severe,Fertilizer,0.000,1,0.000,0,1,0,1,0.006,45,60,90,analyst_assumption,Delayed non-Gulf production and trade substitution response
+hormuz_30d_severe,Helium,0.000,1,0.000,0,1,0,1,0.002,60,90,120,analyst_assumption,Small delayed response constrained by purification containers allocation and qualification
+red_sea_60d_diversion,Crude oil,0.000,1,0.005,14,7,45,14,0.005,21,30,45,analyst_assumption,No Hormuz bypass credit; limited emergency release and external response
+red_sea_60d_diversion,LNG,0.000,1,0.000,0,1,0,1,0.006,30,45,60,analyst_assumption,Cape rerouting remains in chokepoint layer; external supply response is separate
+red_sea_60d_diversion,Fertilizer,0.000,1,0.000,0,1,0,1,0.004,45,60,90,analyst_assumption,Delayed trade and production response
+red_sea_60d_diversion,Helium,0.000,1,0.000,0,1,0,1,0.001,60,90,120,analyst_assumption,Minimal qualified external response
+compound_hormuz_red_sea,Crude oil,0.018,10,0.020,7,7,90,14,0.012,21,30,60,sourced_anchor_analyst_timing,Red Sea stress constrains use of the full Hormuz bypass option; stronger emergency response assumption
+compound_hormuz_red_sea,LNG,0.000,1,0.000,0,1,0,1,0.010,30,45,60,analyst_assumption,No strategic reserve; delayed external cargo response
+compound_hormuz_red_sea,Fertilizer,0.000,1,0.000,0,1,0,1,0.008,45,60,90,analyst_assumption,Delayed production and trade substitution response
+compound_hormuz_red_sea,Helium,0.000,1,0.000,0,1,0,1,0.003,60,90,120,analyst_assumption,Limited qualified external response
+multi_node_stress,Crude oil,0.010,14,0.025,7,7,90,21,0.015,21,45,60,analyst_assumption,Network stress constrains bypass while inducing a larger emergency response
+multi_node_stress,LNG,0.000,1,0.000,0,1,0,1,0.012,30,60,90,analyst_assumption,Delayed external cargo response under multi-node constraints
+multi_node_stress,Fertilizer,0.000,1,0.000,0,1,0,1,0.010,45,75,120,analyst_assumption,Delayed trade and production response under broad disruption
+multi_node_stress,Helium,0.000,1,0.000,0,1,0,1,0.004,60,120,150,analyst_assumption,Small slow response under qualification constraints
+sensor_fused_hormuz,Crude oil,0.026,10,0.015,10,7,60,14,0.010,21,30,45,sourced_anchor_analyst_timing,Same structural capacity as Hormuz case while sensor evidence updates the physical disruption path
+sensor_fused_hormuz,LNG,0.000,1,0.000,0,1,0,1,0.008,30,45,60,analyst_assumption,No like-for-like Hormuz bypass or strategic reserve
+sensor_fused_hormuz,Fertilizer,0.000,1,0.000,0,1,0,1,0.006,45,60,90,analyst_assumption,Delayed non-Gulf production and trade substitution response
+sensor_fused_hormuz,Helium,0.000,1,0.000,0,1,0,1,0.002,60,90,120,analyst_assumption,Small delayed response constrained by specialized supply chain
+compound_hormuz_red_sea_ecological,Crude oil,0.018,10,0.020,7,7,90,14,0.012,21,30,60,sourced_anchor_analyst_timing,Market path matches compound scenario; ecology is modeled separately and conditionally
+compound_hormuz_red_sea_ecological,LNG,0.000,1,0.000,0,1,0,1,0.010,30,45,60,analyst_assumption,No strategic reserve; delayed external cargo response
+compound_hormuz_red_sea_ecological,Fertilizer,0.000,1,0.000,0,1,0,1,0.008,45,60,90,analyst_assumption,Delayed production and trade substitution response
+compound_hormuz_red_sea_ecological,Helium,0.000,1,0.000,0,1,0,1,0.003,60,90,120,analyst_assumption,Limited qualified external response

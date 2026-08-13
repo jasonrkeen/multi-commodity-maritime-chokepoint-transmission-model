@@ -1,0 +1,36 @@
+name: Model assumption proposal
+description: Propose a transparent change to an assumption, source, or transmission mechanism.
+title: "[Assumption]: "
+labels: [model-assumption]
+body:
+  - type: input
+    id: mechanism
+    attributes:
+      label: Physical or economic mechanism
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current treatment and limitation
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public evidence or rationale
+      description: Include sources and distinguish observed facts from analyst judgment.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation and test plan
+    validations:
+      required: true

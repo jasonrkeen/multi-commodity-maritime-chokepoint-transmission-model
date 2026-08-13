@@ -1,0 +1,7 @@
+scenario,scenario_probability,use_sensor_fusion,base_market_risk_premium_pct,initial_demand_reduction_share,policy_demand_reduction_share,brent_target_low_usd,brent_target_high_usd,narrative
+hormuz_30d_severe,0.22,0,0.08,0.008,0.010,95,125,Severe but incomplete Hormuz disruption with dependency spillover and gradual recovery
+red_sea_60d_diversion,0.30,0,0.04,0.002,0.003,78,98,Sustained security-driven Red Sea avoidance with Cape rerouting
+compound_hormuz_red_sea,0.14,0,0.10,0.015,0.012,105,145,Concurrent Gulf and Red Sea disruption with dynamic demand response
+multi_node_stress,0.06,0,0.14,0.020,0.020,125,180,Severe low-probability multi-node disruption
+sensor_fused_hormuz,0.18,1,0.06,0.010,0.008,88,118,Illustrative daily AIS SAR thermal and radar fusion updates the physical scenario path
+compound_hormuz_red_sea_ecological,0.04,0,0.10,0.015,0.012,105,145,Conditional compound disruption with separate long-horizon ecological externality channels
