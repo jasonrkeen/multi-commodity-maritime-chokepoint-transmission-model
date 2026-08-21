@@ -67,6 +67,12 @@ def build_scenario_comparison(inputs: ModelInputs, days: int) -> pd.DataFrame:
                 "peak_regional_sour_spread_usd": float(
                     crude["peak_regional_sour_spread_usd"]
                 ),
+                "minimum_heavy_sour_enabling_availability_pct": float(
+                    crude["minimum_heavy_sour_enabling_availability_pct"]
+                ),
+                "peak_effective_reassigned_heavy_sour_share_pct": float(
+                    crude["peak_effective_reassigned_heavy_sour_share_pct"]
+                ),
                 "static_demand_peak_brent_usd": float(
                     crude["peak_static_demand_price_usd"]
                 ),

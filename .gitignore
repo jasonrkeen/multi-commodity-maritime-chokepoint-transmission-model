@@ -16,6 +16,9 @@ Thumbs.db
 .matplotlib/
 tmp/
 outputs/
+data/private/
+private_packets/
+private_calibration/
 build/
 dist/
 *.egg-info/

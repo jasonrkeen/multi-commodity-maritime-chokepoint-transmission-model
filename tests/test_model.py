@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import shutil
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -125,6 +127,68 @@ class ChokepointModelTests(unittest.TestCase):
                 >= baseline_crude["implied_price_usd"]
             ).all()
         )
+
+    def test_heavy_sour_offset_requires_upstream_grid_and_terminal(self) -> None:
+        baseline = run_scenario(self.inputs, "sensor_fused_hormuz", 30)
+        structure = self.inputs.crude_market_structure.copy()
+        mask = structure["scenario"] == "sensor_fused_hormuz"
+        structure.loc[mask, "upstream_availability_share"] = 0.90
+        structure.loc[mask, "grid_availability_share"] = 0.50
+        structure.loc[mask, "terminal_availability_share"] = 0.80
+        constrained = run_scenario(
+            self.inputs.with_frames(crude_market_structure=structure),
+            "sensor_fused_hormuz",
+            30,
+        )
+        baseline_crude = baseline[baseline["commodity"] == "Crude oil"]
+        constrained_crude = constrained[constrained["commodity"] == "Crude oil"]
+        expected_availability = 0.90 * 0.50 * 0.80
+        self.assertTrue(
+            constrained_crude["heavy_sour_enabling_availability_pct"]
+            .sub(expected_availability)
+            .abs()
+            .lt(1e-12)
+            .all()
+        )
+        self.assertTrue(
+            constrained_crude["effective_reassigned_heavy_sour_share_pct"]
+            .sub(0.025 * expected_availability)
+            .abs()
+            .lt(1e-12)
+            .all()
+        )
+        self.assertTrue(
+            baseline_crude["net_market_gap_pct"].reset_index(drop=True).equals(
+                constrained_crude["net_market_gap_pct"].reset_index(drop=True)
+            )
+        )
+        self.assertGreaterEqual(
+            constrained_crude["regional_sour_spread_usd"].sum(),
+            baseline_crude["regional_sour_spread_usd"].sum(),
+        )
+
+    def test_v05_crude_structure_defaults_to_neutral_availability(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            input_dir = Path(directory) / "input"
+            shutil.copytree(ROOT / "data" / "input", input_dir)
+            path = input_dir / "crude_market_structure.csv"
+            structure = pd.read_csv(path).drop(
+                columns=[
+                    "upstream_availability_share",
+                    "grid_availability_share",
+                    "terminal_availability_share",
+                ]
+            )
+            structure.to_csv(path, index=False)
+            legacy_inputs = load_inputs(input_dir)
+            for column in [
+                "upstream_availability_share",
+                "grid_availability_share",
+                "terminal_availability_share",
+            ]:
+                self.assertTrue(
+                    (legacy_inputs.crude_market_structure[column] == 1.0).all()
+                )
 
     def test_structural_offsets_reduce_the_unbalanced_path(self) -> None:
         daily = run_scenario(self.inputs, "sensor_fused_hormuz", 120)

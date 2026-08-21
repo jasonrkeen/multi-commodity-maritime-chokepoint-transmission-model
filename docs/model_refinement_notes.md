@@ -75,3 +75,17 @@ injury and long recovery horizons from immediate commodity prices. Exact grade,
 channel, incident, timing, value-at-risk, and confidence parameters remain editable
 analyst assumptions in `crude_market_structure.csv` and
 `ecological_externalities.csv`.
+
+## Version 0.6 source-country enabling availability
+
+Version 0.6 separates nominal heavy-sour reassignment from effective availability.
+The usable reassignment share is the product of upstream, electric-grid, and
+terminal availability. This prevents intact production from automatically
+offsetting a regional grade gap when the infrastructure required to process or
+load those barrels is constrained.
+
+Public USGS earthquake information and Reuters infrastructure reporting provide
+the event and operational context for this distinction. The three availability
+shares remain scenario assumptions, default to `1.0`, and affect only the
+regional grade-mismatch channel. They do not create new global supply or alter
+the released baseline unless explicitly changed.

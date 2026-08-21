@@ -6,6 +6,13 @@ from pathlib import Path
 import pandas as pd
 
 
+HEAVY_SOUR_AVAILABILITY_COLUMNS = (
+    "upstream_availability_share",
+    "grid_availability_share",
+    "terminal_availability_share",
+)
+
+
 @dataclass(frozen=True)
 class ModelInputs:
     commodities: pd.DataFrame
@@ -76,6 +83,14 @@ def _read(path: Path) -> pd.DataFrame:
     return pd.read_csv(path)
 
 
+def _read_crude_market_structure(path: Path) -> pd.DataFrame:
+    frame = _read(path)
+    for column in HEAVY_SOUR_AVAILABILITY_COLUMNS:
+        if column not in frame.columns:
+            frame[column] = 1.0
+    return frame
+
+
 def load_inputs(input_dir: Path) -> ModelInputs:
     inputs = ModelInputs(
         commodities=_read(input_dir / "commodities.csv"),
@@ -84,7 +99,9 @@ def load_inputs(input_dir: Path) -> ModelInputs:
         scenarios=_read(input_dir / "scenarios.csv"),
         scenario_catalog=_read(input_dir / "scenario_catalog.csv"),
         market_balancing=_read(input_dir / "market_balancing.csv"),
-        crude_market_structure=_read(input_dir / "crude_market_structure.csv"),
+        crude_market_structure=_read_crude_market_structure(
+            input_dir / "crude_market_structure.csv"
+        ),
         ecological_externalities=_read(
             input_dir / "ecological_externalities.csv"
         ),
@@ -175,6 +192,9 @@ def validate_inputs(inputs: ModelInputs) -> None:
             "segmented_channel_share",
             "panic_premium_insulation_share",
             "reassigned_heavy_sour_share",
+            "upstream_availability_share",
+            "grid_availability_share",
+            "terminal_availability_share",
             "sour_spread_sensitivity_usd",
             "sour_spread_cap_usd",
             "logistics_friction_premium_usd",
@@ -305,6 +325,9 @@ def validate_inputs(inputs: ModelInputs) -> None:
         (inputs.crude_market_structure, "segmented_channel_share"),
         (inputs.crude_market_structure, "panic_premium_insulation_share"),
         (inputs.crude_market_structure, "reassigned_heavy_sour_share"),
+        (inputs.crude_market_structure, "upstream_availability_share"),
+        (inputs.crude_market_structure, "grid_availability_share"),
+        (inputs.crude_market_structure, "terminal_availability_share"),
         (inputs.ecological_externalities, "severity"),
         (inputs.ecological_externalities, "confidence"),
     ]

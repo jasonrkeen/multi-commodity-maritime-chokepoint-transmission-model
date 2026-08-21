@@ -1,8 +1,18 @@
 # Multi-Commodity Maritime Chokepoint Transmission Model
 
-Version 0.5.0 is a transparent scenario, Monte Carlo, structural-balancing, market-segmentation, and calibration-diagnostic model for estimating how maritime chokepoint disruption transmits through **crude oil, LNG, fertilizer, and helium**.
+Version 0.6.0 is a transparent scenario, Monte Carlo, structural-balancing, market-segmentation, and calibration-diagnostic model for estimating how maritime chokepoint disruption transmits through **crude oil, LNG, fertilizer, and helium**.
 
 The model combines physical-flow stress, pipeline bypass, emergency stock releases, external supply response, dynamic demand, crude-grade mismatch, segmented purchasing channels, route dependencies, inventory, sensor confidence, delayed downstream effects, and a separate conditional ecological branch. Dollar results are modeled **gross economic exposure**, not net GDP loss, firm valuation, or realized damages.
+
+Version 0.6.0 adds an enabling-availability chain for reassigned heavy-sour barrels. Nominal reassignment is discounted by upstream, electric-grid, and terminal availability before it can reduce the regional grade gap. The three factors default to 100%, so existing scenario results remain unchanged until a source-country fragility assumption is explicitly configured. This public release contains no third-party practitioner packet, packet schema, signal taxonomy, or packet-derived diagnostic.
+
+## What changed in version 0.6
+
+- Reassigned heavy-sour supply is multiplied by upstream, grid, and terminal availability before reducing the regional sour gap.
+- Daily and summary outputs report enabling availability and effective reassignment separately from nominal reassignment.
+- Legacy v0.5 crude-market structure files receive neutral `1.0` defaults for all three availability fields.
+- Public USGS and Reuters reporting provides event and infrastructure context; availability values remain explicit analyst assumptions.
+- Two regression tests enforce the enabling chain and backward-compatible defaults, bringing the release gate to 26 tests.
 
 ## What changed in version 0.5
 
@@ -181,12 +191,18 @@ The crude path distinguishes the global Brent proxy from a regional sour-complex
 sour_gap
   = loss_after_structural_offsets / sour_dependent_market_share
     × (1 - alternative_grade_compatibility)
-    - reassigned_heavy_sour_share
+    - effective_reassigned_heavy_sour_share
+
+effective_reassigned_heavy_sour_share
+  = reassigned_heavy_sour_share
+    × upstream_availability_share
+    × grid_availability_share
+    × terminal_availability_share
 
 regional_sour_price = brent_proxy + grade_and_logistics_basis
 ```
 
-Segmented purchasing channels reduce the price shock experienced by participating buyers and create an apparent withdrawal from the benchmark market. That channel shift is reported separately from true consumption reduction. Reassigned barrels affect the regional sour gap only; they do not reduce the global physical deficit.
+Segmented purchasing channels reduce the price shock experienced by participating buyers and create an apparent withdrawal from the benchmark market. That channel shift is reported separately from true consumption reduction. Only effectively available reassigned barrels affect the regional sour gap; they do not reduce the global physical deficit.
 
 ### 10. Conditional ecological transmission
 
@@ -306,7 +322,7 @@ The Monte Carlo and target-check files include exact simulated Brent band-covera
 - `scenarios.csv`: event timing, duration, severity, and recovery
 - `scenario_catalog.csv`: scenario probability, risk premium, demand policy, and validation bands
 - `market_balancing.csv`: pipeline bypass, emergency-release, and external-supply timing and capacity
-- `crude_market_structure.csv`: sour-market concentration, grade compatibility, segmented-channel insulation, reassignment, and basis assumptions
+- `crude_market_structure.csv`: sour-market concentration, grade compatibility, segmented-channel insulation, nominal reassignment, upstream/grid/terminal availability, and basis assumptions
 - `ecological_externalities.csv`: conditional incident severity, channel-specific lags, value at risk, and confidence
 - `chokepoint_dependencies.csv`: lagged stress transmission between nodes
 - `sensor_signals.csv`: synthetic sensor-fusion demonstration
@@ -323,6 +339,7 @@ The Monte Carlo and target-check files include exact simulated Brent band-covera
 - The World Bank reports that fertilizer disruption can reduce application and emerge later in harvest outcomes.
 - USGS identifies the United States and Qatar as leading helium producers/exporters; exact route exposure and commercial inventories remain assumptions pending better shipment data.
 - NOAA incident and restoration material anchors the separation of environmental injury and multi-year recovery from short-run commodity pricing; all ecological values and severities remain analyst assumptions.
+- USGS earthquake information and Reuters infrastructure reporting anchor the distinction between intact upstream barrels and unavailable grid, terminal, refining, or petrochemical enabling layers. The three availability shares remain scenario assumptions.
 
 Full URLs and usage are recorded in `data/input/source_register.csv`.
 
@@ -332,7 +349,7 @@ Full URLs and usage are recorded in `data/input/source_register.csv`.
 python -m unittest discover -s tests -v
 ```
 
-The 24 tests cover bounded loss, recovery, serial-route grouping, dynamic demand, structural-flow offsets, strategic-stock depletion, price-contribution reconciliation, dependency propagation, sensor selection-bias correction, confidence maturity and AIS staleness, crude-channel misclassification, sour-basis conservation, delayed ecological transmission and ecological Monte Carlo quantiles, seasonal fertilizer lag, helium reserve treatment, inventory exhaustion, impact reconciliation, commodity Monte Carlo quantiles and target coverage, scenario comparison, aggregate-price governance, and calibration baseline preservation.
+The 26 tests cover bounded loss, recovery, serial-route grouping, dynamic demand, structural-flow offsets, strategic-stock depletion, price-contribution reconciliation, dependency propagation, sensor selection-bias correction, confidence maturity and AIS staleness, crude-channel misclassification, sour-basis conservation, heavy-sour enabling availability and legacy defaults, delayed ecological transmission and ecological Monte Carlo quantiles, seasonal fertilizer lag, helium reserve treatment, inventory exhaustion, impact reconciliation, commodity Monte Carlo quantiles and target coverage, scenario comparison, aggregate-price governance, and calibration baseline preservation.
 
 The GitHub Actions workflow repeats the suite on Python 3.11, 3.12, 3.13, and 3.14 and runs a deterministic 30-day smoke scenario. Generated files are written outside the checked-out repository during CI.
 
@@ -340,7 +357,7 @@ The GitHub Actions workflow repeats the suite on Python 3.11, 3.12, 3.13, and 3.
 
 The public repository includes the source code, tests, documentation, and the curated CSV configuration required to reproduce the model. Those inputs are public-source anchors, synthetic signals, or explicitly labeled analyst assumptions.
 
-The repository excludes generated run outputs, raw or licensed source material, credentials, private correspondence, operational sensor feeds, local environments, caches, and temporary rendering files. Recreate outputs with the commands above rather than committing them.
+The repository excludes generated run outputs, raw or licensed source material, third-party practitioner packets and derived diagnostics, credentials, private correspondence, operational sensor feeds, local environments, caches, and temporary rendering files. Recreate outputs with the commands above rather than committing them.
 
 See `CONTRIBUTING.md` before proposing changes, `RELEASE_CHECKLIST.md` before tagging a release, `docs/github_readiness_audit.md` for the publication controls, and `CITATION.cff` when citing the software. The project is released under the MIT License.
 
