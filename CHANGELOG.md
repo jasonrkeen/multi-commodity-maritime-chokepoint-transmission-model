@@ -4,11 +4,27 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-08-21
+
+### Added
+
+- An upstream × electric-grid × terminal enabling-availability chain for reassigned heavy-sour barrels.
+- Daily and summary fields separating nominal reassignment, enabling availability, and effective reassignment.
+- Public USGS and Reuters source-register entries supporting the source-country infrastructure-fragility mechanism.
+- Two regression tests covering the availability chain and backward-compatible input defaults, bringing the suite to 26 tests.
+
 ### Changed
 
 - Widened supported pandas versions to include the tested 3.x series while retaining pandas 2.1 compatibility.
 - Added a Python 3.11 CI job that exercises the declared minimum NumPy, pandas, and Matplotlib versions.
 - Configured Dependabot to preserve compatible dependency ranges and widen them only when necessary.
+- Legacy v0.5 crude-market structure files default missing availability fields to the neutral value `1.0`.
+
+### Governance
+
+- The availability factors are explicit analyst assumptions and default to a neutral baseline.
+- Effective reassignment affects only the regional grade gap and is never counted as new global supply.
+- No third-party practitioner packet, packet schema, signal taxonomy, correspondence, or packet-derived diagnostic is included in the public release.
 
 ## [0.5.0] - 2026-08-12
 

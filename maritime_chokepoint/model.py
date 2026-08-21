@@ -375,6 +375,9 @@ def run_scenario(
             regional_sour_price = np.nan
             segmented_channel_shift = 0.0
             experienced_price_shock = price_shock
+            base_reassigned_heavy_sour_share = 0.0
+            heavy_sour_enabling_availability = 1.0
+            effective_reassigned_heavy_sour_share = 0.0
             if name == "Crude oil":
                 segmented_channel_shift = (
                     float(crude_structure["segmented_channel_share"])
@@ -386,6 +389,18 @@ def run_scenario(
                     * float(
                         crude_structure["panic_premium_insulation_share"]
                     )
+                )
+                base_reassigned_heavy_sour_share = float(
+                    crude_structure["reassigned_heavy_sour_share"]
+                )
+                heavy_sour_enabling_availability = (
+                    float(crude_structure["upstream_availability_share"])
+                    * float(crude_structure["grid_availability_share"])
+                    * float(crude_structure["terminal_availability_share"])
+                )
+                effective_reassigned_heavy_sour_share = (
+                    base_reassigned_heavy_sour_share
+                    * heavy_sour_enabling_availability
                 )
                 grade_mismatch_gap = max(
                     balanced_supply_loss
@@ -401,9 +416,7 @@ def run_scenario(
                             ]
                         )
                     )
-                    - float(
-                        crude_structure["reassigned_heavy_sour_share"]
-                    ),
+                    - effective_reassigned_heavy_sour_share,
                     0.0,
                 )
                 regional_sour_spread = min(
@@ -536,6 +549,15 @@ def run_scenario(
                     "grade_mismatch_gap_pct": grade_mismatch_gap,
                     "regional_sour_spread_usd": regional_sour_spread,
                     "regional_sour_price_usd": regional_sour_price,
+                    "base_reassigned_heavy_sour_share_pct": (
+                        base_reassigned_heavy_sour_share
+                    ),
+                    "heavy_sour_enabling_availability_pct": (
+                        heavy_sour_enabling_availability
+                    ),
+                    "effective_reassigned_heavy_sour_share_pct": (
+                        effective_reassigned_heavy_sour_share
+                    ),
                     "static_demand_price_shock_pct": static_demand_price_shock,
                     "static_demand_implied_price_usd": static_demand_implied_price,
                     "demand_moderation_price_usd": (
@@ -728,6 +750,14 @@ def summarize_scenario(daily: pd.DataFrame) -> pd.DataFrame:
         peak_implied_price_usd=("implied_price_usd", "max"),
         peak_regional_sour_spread_usd=("regional_sour_spread_usd", "max"),
         peak_regional_sour_price_usd=("regional_sour_price_usd", "max"),
+        minimum_heavy_sour_enabling_availability_pct=(
+            "heavy_sour_enabling_availability_pct",
+            "min",
+        ),
+        peak_effective_reassigned_heavy_sour_share_pct=(
+            "effective_reassigned_heavy_sour_share_pct",
+            "max",
+        ),
         peak_static_demand_price_usd=(
             "static_demand_implied_price_usd",
             "max",

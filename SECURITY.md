@@ -8,4 +8,4 @@ Security fixes are applied to the latest release.
 
 Use the repository's private GitHub Security Advisory reporting channel when available. Do not disclose exploitable details in a public issue.
 
-This repository should never contain credentials, private correspondence, non-public vessel tracks, restricted data, or access tokens. If sensitive material is committed, revoke or rotate the affected credential or source access immediately; deleting a later commit is not sufficient.
+This repository should never contain credentials, private correspondence, third-party practitioner packets, derived private diagnostics, non-public vessel tracks, restricted data, or access tokens. If sensitive material is committed, revoke or rotate the affected credential or source access immediately; deleting a later commit is not sufficient.

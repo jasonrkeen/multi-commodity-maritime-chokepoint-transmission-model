@@ -182,6 +182,11 @@ def main() -> None:
         f"(maximum basis ${crude['peak_regional_sour_spread_usd']:,.2f}/b)"
     )
     print(
+        "Heavy-sour enabling availability/effective reassignment: "
+        f"{crude['minimum_heavy_sour_enabling_availability_pct']:.1%} / "
+        f"{crude['peak_effective_reassigned_heavy_sour_share_pct']:.2%}"
+    )
+    print(
         "Peak true/apparent crude demand reduction: "
         f"{crude['peak_demand_reduction_pct']:.2%} / "
         f"{crude['peak_apparent_benchmark_demand_reduction_pct']:.2%}"

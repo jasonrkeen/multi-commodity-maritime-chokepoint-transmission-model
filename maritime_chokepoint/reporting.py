@@ -547,9 +547,19 @@ def _pdf_report(
         )
         fig.text(
             0.08,
-            0.215,
+            0.235,
+            "Minimum upstream-grid-terminal availability "
+            f"{crude['minimum_heavy_sour_enabling_availability_pct']:.0%} | "
+            "effective reassigned heavy-sour share "
+            f"{crude['peak_effective_reassigned_heavy_sour_share_pct']:.2%}",
+            fontsize=9.2,
+        )
+        fig.text(
+            0.08,
+            0.145,
             "The regional basis isolates grade compatibility and route friction. Reassigned heavy-sour barrels\n"
-            "can reduce this regional gap but are not counted as new global supply. Segmented discounted channels\n"
+            "are usable only when upstream, grid, and terminal layers function; they are not new global supply. "
+            "Segmented discounted channels\n"
             "reduce the price shock experienced by participating buyers without being labeled demand destruction.",
             fontsize=9.2,
             color="#555555",
@@ -557,7 +567,7 @@ def _pdf_report(
         )
         fig.text(
             0.08,
-            0.105,
+            0.045,
             "Governance: parameters are illustrative analyst assumptions. The Brent and sour paths are separate\n"
             "proxies, not observed benchmark forecasts, and require public grade-flow calibration before operational use.",
             fontsize=9,
