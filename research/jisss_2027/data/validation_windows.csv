@@ -1,1 +1,4 @@
 ﻿window_id,start_date,end_date,freeze_date,classification,purpose,notes
+PRE_FREEZE,2026-01-01,2026-08-18,2026-08-19,retrospective_context,Historical benchmark and model-context evidence,Must not be represented as prospective validation
+FREEZE_DAY,2026-08-19,2026-08-19,2026-08-19,contemporaneous,Reference model freeze,Ambiguous same-day evidence requires source-time review
+POST_FREEZE,2026-08-20,2026-12-31,2026-08-19,prospective_validation,Primary frozen-specification validation window,No model parameter changes permitted before Experiment A lock
