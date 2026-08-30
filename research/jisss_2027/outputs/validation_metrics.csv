@@ -4,3 +4,7 @@ A_HORMUZ_EXTREME_REDUCTION,SPGLOBAL_HORMUZ_AUG28,,hormuz_crossing_reduction,thre
 A_BAB_OPERATIONAL,REUTERS_BAB_AUG25,,bab_el_mandeb_daily_transits,observed_point,31,vessels_per_day,TRUE,"Supports evaluation of whether alternative regional corridor remained comparatively functional"
 A_BRENT_POSTFREEZE,REUTERS_BRENT_AUG26,,brent_settlement,observed_point,87.84,usd_per_bbl,FALSE,"Daily settlement is not directly comparable with frozen model peak proxy"
 A_DUBAI_POSTFREEZE,SPGLOBAL_DUBAI_AUG27,,dubai_crude_assessment,observed_point,90.40,usd_per_bbl,FALSE,"Single-day Dubai assessment is not directly comparable with frozen regional sour-complex peak proxy"
+A_HORMUZ_AUG26_SHORTFALL,REUTERS_HORMUZ_AUG26_TRANSITS,REUTERS_HORMUZ_10D_AVG,hormuz_transit_shortfall,derived_observed,-33.3333,percent,TRUE,"10 visible transits versus moving average of 15"
+A_LR2_FREIGHT_RECORD,SPGLOBAL_LR2_AUG27,,freight_stress_record,threshold_observed,107.72,usd_per_metric_ton,TRUE,"Observed all-time-high Middle East Gulf-Japan LR2 rate; supports freight-stress direction"
+A_SOUR_BASIS_AUG27,SPGLOBAL_DUBAI_PREMIUM_AUG27,,regional_sour_basis,observed_point,10.78,usd_per_bbl,TRUE,"Directly observed cash Dubai premium to same-month futures; comparable to direction and magnitude class, not frozen maximum"
+A_ULSD_PREWAR_CHANGE,SPGLOBAL_ULSD_AUG26,,mediterranean_ulsd_price_increase,derived_observed,69.88,percent,TRUE,"Aug. 26 ULSD assessment versus reported Feb. 27 prewar benchmark of $762.75/mt; supports lagged refined-product transmission"
