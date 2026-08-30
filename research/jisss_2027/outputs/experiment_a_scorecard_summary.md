@@ -1,74 +1,63 @@
-﻿# Experiment A - Frozen-Specification Validation Scorecard
+﻿# Experiment A - Frozen-Specification Validation
 
 ## Purpose
 
-This scorecard evaluates agreement between the frozen maritime-chokepoint
-model specification and observations collected after the 19 August 2026
-reference-model freeze.
+Experiment A evaluates the frozen maritime-chokepoint specification against
+subsequently observed evidence without recalibrating model parameters.
 
-It is not a measure of predictive accuracy in the conventional forecasting
-sense.
+The final analysis reports categorical validation outcomes rather than a
+single aggregate numerical support percentage.
 
-## Evaluation structure
+## Final categorical results
 
-Each validation dimension is classified as:
-
-- SUPPORT
-- PARTIAL
-- CONTRADICT
-- NOT_COMPARABLE
-
-Only scoreable SUPPORT, PARTIAL, or CONTRADICT dimensions contribute to the
-weighted aggregate support measure.
-
-SUPPORT = 1.0
-PARTIAL = 0.5
-CONTRADICT = 0.0
-
-NOT_COMPARABLE observations are retained but receive no numerical weight.
-
-## Principal findings
-
-Post-freeze observations support:
-
-1. persistent severe impairment of Hormuz transit;
-2. comparatively greater functionality of alternative regional corridors;
-3. elevated tanker freight costs;
-4. localized Middle Eastern sour-crude basis stress;
-5. substantial refined-product price transmission;
-6. crude-price elevation;
-7. the usefulness of a multi-channel rather than crude-only framework.
-
-Evidence concerning nonlinear compound-chokepoint effects remains incomplete.
-
-The modeled peak Brent and regional sour-price proxies are not evaluated with
-point-error metrics because the available observed statistics differ in
-construction and time horizon.
-
-The modeled dollar value of lagged strategic exposure is also not directly
-observable. Validation therefore evaluates the associated transmission
-mechanisms rather than treating proxy observations as synthetic dollar losses.
+- SUPPORT: 8
+- PARTIAL: 2
+- NOT COMPARABLE: 3
+- CONTRADICT: 0
 
 ## Interpretation
 
-The aggregate score should be interpreted as an evidence-weighted measure of
-structural and directional agreement.
+SUPPORT indicates qualifying evidence consistent with the relevant frozen
+model expectation.
 
-It must not be described as forecast accuracy, probability of correctness,
-or confirmation of the modeled dollar exposure estimates.
+PARTIAL indicates that evidence supports a direction, mechanism, threshold,
+or component but does not permit complete validation.
 
-## Aggregate result
+CONTRADICT is reserved for qualifying evidence materially inconsistent with
+the frozen expectation.
 
-Weighted Experiment A support score: 91.5%
+NOT COMPARABLE indicates that the observed statistic and modeled quantity
+cannot be defensibly compared on a like-for-like basis.
 
-Scorecard distribution:
+## Aggregate scoring decision
 
-- SUPPORT: 9
-- PARTIAL: 2
-- NOT_COMPARABLE: 2
-- CONTRADICT: 0
+Exploratory numerical scoring was used during development of the validation
+framework. Those calculations are retained in Git history for auditability
+but are not used as final validation results.
 
-The 91.5% value represents evidence-weighted structural and directional
-agreement across scoreable validation dimensions. It is not forecast
-accuracy, a probability of model correctness, or validation of the modeled
-dollar exposure estimates.
+The weighting scheme and numerical mappings were not preregistered, and the
+underlying evidence includes heterogeneous validation types including
+directional, threshold, mechanism, contextual and direct-comparison evidence.
+
+The final study therefore does not report a global model-support or forecast-
+accuracy percentage.
+
+## Principal findings
+
+Post-freeze evidence provides varying degrees of support for:
+
+- persistent Hormuz impairment;
+- comparatively greater functionality of alternative regional corridors;
+- elevated tanker freight costs;
+- localized Middle Eastern sour-crude pricing stress;
+- downstream refined-product stress;
+- crude-price elevation;
+- LNG disruption;
+- alternative pipeline utilization; and
+- the usefulness of a multi-channel consequence framework.
+
+Several modeled quantities remain unsuitable for conventional point-error
+testing, including modeled peak-price proxies and dollar-denominated lagged
+strategic exposure.
+
+These limitations remain explicit in the final assessment.

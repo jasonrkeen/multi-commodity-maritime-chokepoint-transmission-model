@@ -1,67 +1,48 @@
-﻿# Experiment A - Prospective Evidence Coverage Matrix
+﻿# Experiment A - Validation Evidence Coverage
 
 ## Purpose
 
-This matrix evaluates the completeness of prospective evidence across the
-11 validation domains specified before Experiment A evidence collection.
+This matrix documents the availability and comparability of evidence across
+the 11 preregistered Experiment A validation domains.
 
-It measures evidence coverage, not predictive accuracy.
+No numerical coverage index is reported.
 
-## Coverage classifications
+The domains contain heterogeneous validation targets and evidence types, and
+no domain-weighting scheme was preregistered.
 
-STRONG = multiple or particularly informative post-freeze observations
-support evaluation of the domain.
+## Current categorical status
 
-PARTIAL = prospective evidence exists, but direct or complete validation
-remains limited.
+- COVERED: 3 domains
+- PARTIAL: 7 domains
+- GAP: 1 domain
 
-GAP = no clean post-freeze evidence currently supports quantitative or
-structured validation of the domain.
-
-## Current coverage
-
-Strong coverage:
-
-- Hormuz physical throughput
-- Bab el-Mandeb / Red Sea throughput
-- Regional sour-crude basis response
-- Refined-product disruption
-- Freight and logistics cost
-
-Partial coverage:
-
-- Crude price response
-- Immediate versus lagged transmission
-
-Primary evidence gaps:
-
-- LNG disruption
-- Alternative pipeline utilization
-- Inventory drawdowns
-- Production shut-ins
-
-## Research priority
-
-The next evidence-collection phase should prioritize the four domains with
-no clean prospective observations rather than continue adding redundant
-observations to already well-supported channels.
-
-Highest-priority targets are:
-
-1. post-freeze LNG flows or LNG-market response;
-2. Saudi East-West and UAE bypass-pipeline utilization;
-3. post-freeze oil inventory draws;
-4. post-freeze Gulf production shut-ins or restoration.
-
-War-risk insurance data should also be added to strengthen the freight and
-logistics domain.
+Ten of eleven validation domains contain at least some evidence relevant to
+Experiment A, but most remain only partially testable.
 
 ## Interpretation
 
-The matrix is designed to prevent validation results from being dominated
-by evidence-rich domains such as vessel traffic and crude prices while
-leaving less observable mechanisms untested.
+COVERED indicates that independently observable evidence directly relevant to
+the frozen model claim is available. It does not mean that every modeled
+magnitude within the domain has been proven accurate.
 
-A high score in the existing Experiment A scorecard therefore should not
-be interpreted as complete model validation until the remaining coverage
-gaps are addressed.
+PARTIAL indicates that evidence supports a direction, mechanism, threshold or
+component of the domain but does not permit complete or directly comparable
+validation.
+
+GAP indicates that no suitable observed evidence has yet been identified.
+
+## Outstanding evidence priorities
+
+The remaining complete evidence gap is post-freeze production shut-ins.
+
+Important partial domains include:
+
+- LNG flow magnitude;
+- refined-product breadth;
+- alternative-pipeline utilization beyond the UAE bypass;
+- fully post-freeze inventory changes;
+- war-risk insurance;
+- and the timing and magnitude of lagged transmission.
+
+The matrix is intended to expose these limitations rather than collapse them
+into a synthetic measure of completeness.

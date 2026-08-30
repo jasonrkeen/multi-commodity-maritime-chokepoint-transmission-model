@@ -12,6 +12,7 @@ OUTPUTS = ROOT / "outputs"
 OBS_PATH = DATA / "observed_2026.csv"
 METRIC_PATH = OUTPUTS / "validation_metrics.csv"
 SCORECARD_PATH = OUTPUTS / "experiment_a_scorecard.csv"
+COVERAGE_PATH = OUTPUTS / "coverage_gap_matrix.csv"
 REPORT_PATH = OUTPUTS / "experiment_a_automated_validation.md"
 
 FREEZE_DATE = date(2026, 8, 19)
@@ -31,6 +32,20 @@ VALID_ASSESSMENTS = {
     "NOT_COMPARABLE",
 }
 
+VALID_USES = {
+    "direct_point_error",
+    "directional",
+    "threshold",
+    "mechanism",
+    "contextual",
+}
+
+VALID_COVERAGE = {
+    "COVERED",
+    "PARTIAL",
+    "GAP",
+}
+
 
 def parse_date(value: str) -> date:
     return date.fromisoformat(value.strip())
@@ -48,7 +63,6 @@ def load_csv(path: Path):
 def validate_observations(rows):
     errors = []
     warnings = []
-
     ids = set()
 
     for row in rows:
@@ -61,38 +75,48 @@ def validate_observations(rows):
         start = parse_date(row["date_start"])
         end = parse_date(row["date_end"])
         temporal = row["temporal_classification"].strip()
-        eligible = is_true(row["eligible_for_quantitative_validation"])
+        eligible = is_true(
+            row["eligible_for_quantitative_validation"]
+        )
 
         if start > end:
-            errors.append(f"{oid}: date_start is after date_end")
+            errors.append(
+                f"{oid}: date_start is after date_end"
+            )
 
         if temporal not in VALID_TEMPORAL:
             errors.append(
-                f"{oid}: invalid temporal_classification '{temporal}'"
+                f"{oid}: invalid temporal_classification "
+                f"'{temporal}'"
             )
 
-        # Clean prospective evidence must begin entirely after freeze.
         if temporal == "prospective" and start < POST_FREEZE_START:
             errors.append(
                 f"{oid}: marked prospective but begins {start}, "
-                f"before clean post-freeze window {POST_FREEZE_START}"
+                f"before clean post-freeze window "
+                f"{POST_FREEZE_START}"
             )
 
-        # Anything spanning freeze cannot enter clean quantitative holdout.
         if start <= FREEZE_DATE < end and eligible:
             errors.append(
-                f"{oid}: spans freeze but remains quantitatively eligible"
+                f"{oid}: spans freeze but remains "
+                f"quantitatively eligible"
             )
 
         if temporal == "mixed" and eligible:
             errors.append(
-                f"{oid}: mixed-window observation cannot be quantitatively eligible"
+                f"{oid}: mixed-window observation cannot be "
+                f"quantitatively eligible"
             )
 
-        if temporal in {"retrospective", "contemporaneous"} and eligible:
+        if temporal in {
+            "retrospective",
+            "contemporaneous",
+        } and eligible:
             warnings.append(
-                f"{oid}: {temporal} observation is quantitatively eligible; "
-                "review whether this is intentional"
+                f"{oid}: {temporal} observation is "
+                f"quantitatively eligible; review whether "
+                f"this is intentional"
             )
 
     return errors, warnings
@@ -102,14 +126,21 @@ def validate_metrics(metrics, observations):
     errors = []
     warnings = []
 
-    obs_by_id = {r["observation_id"]: r for r in observations}
+    obs_by_id = {
+        r["observation_id"]: r
+        for r in observations
+    }
 
     for row in metrics:
         metric_id = row["metric_id"]
 
         refs = [
-            row.get("source_observation_1", "").strip(),
-            row.get("source_observation_2", "").strip(),
+            row.get(
+                "source_observation_1", ""
+            ).strip(),
+            row.get(
+                "source_observation_2", ""
+            ).strip(),
         ]
 
         refs = [r for r in refs if r]
@@ -117,30 +148,40 @@ def validate_metrics(metrics, observations):
         for ref in refs:
             if ref not in obs_by_id:
                 errors.append(
-                    f"{metric_id}: references unknown observation {ref}"
+                    f"{metric_id}: references unknown "
+                    f"observation {ref}"
                 )
 
-        if is_true(row["eligible_for_model_comparison"]):
+        if is_true(
+            row["eligible_for_model_comparison"]
+        ):
             for ref in refs:
                 obs = obs_by_id.get(ref)
+
                 if not obs:
                     continue
 
                 if not is_true(
-                    obs["eligible_for_quantitative_validation"]
+                    obs[
+                        "eligible_for_quantitative_validation"
+                    ]
                 ):
                     errors.append(
-                        f"{metric_id}: eligible metric depends on "
-                        f"ineligible observation {ref}"
+                        f"{metric_id}: eligible metric "
+                        f"depends on ineligible observation "
+                        f"{ref}"
                     )
 
                 if (
-                    obs["temporal_classification"].strip()
+                    obs[
+                        "temporal_classification"
+                    ].strip()
                     != "prospective"
                 ):
                     errors.append(
-                        f"{metric_id}: eligible metric depends on "
-                        f"non-prospective observation {ref}"
+                        f"{metric_id}: eligible metric "
+                        f"depends on non-prospective "
+                        f"observation {ref}"
                     )
 
     return errors, warnings
@@ -150,9 +191,6 @@ def validate_scorecard(rows):
     errors = []
     warnings = []
 
-    numerator = 0.0
-    denominator = 0.0
-
     counts = {
         "SUPPORT": 0,
         "PARTIAL": 0,
@@ -161,60 +199,74 @@ def validate_scorecard(rows):
     }
 
     for row in rows:
-        sid = row["scorecard_id"]
+        sid = row["scorecard_id"].strip()
         assessment = row["assessment"].strip()
+        validation_use = row.get(
+            "validation_use", ""
+        ).strip()
 
         if assessment not in VALID_ASSESSMENTS:
             errors.append(
-                f"{sid}: invalid assessment '{assessment}'"
+                f"{sid}: invalid assessment "
+                f"'{assessment}'"
             )
             continue
 
         counts[assessment] += 1
 
-        score_raw = row["score"].strip()
-        weight = float(row["weight"] or 0)
-
-        if assessment == "NOT_COMPARABLE":
-            if weight != 0:
-                errors.append(
-                    f"{sid}: NOT_COMPARABLE row has nonzero weight"
-                )
-            continue
-
-        if not score_raw:
+        if validation_use not in VALID_USES:
             errors.append(
-                f"{sid}: scoreable assessment has no score"
+                f"{sid}: invalid validation_use "
+                f"'{validation_use}'"
+            )
+
+    return errors, warnings, counts
+
+
+def validate_coverage(rows):
+    errors = []
+
+    counts = {
+        "COVERED": 0,
+        "PARTIAL": 0,
+        "GAP": 0,
+    }
+
+    ids = set()
+
+    for row in rows:
+        domain_id = row["domain_id"].strip()
+        status = row["current_status"].strip()
+
+        if domain_id in ids:
+            errors.append(
+                f"Duplicate coverage domain: {domain_id}"
+            )
+        ids.add(domain_id)
+
+        if status not in VALID_COVERAGE:
+            errors.append(
+                f"{domain_id}: invalid coverage status "
+                f"'{status}'"
             )
             continue
 
-        score = float(score_raw)
+        counts[status] += 1
 
-        if not 0 <= score <= 1:
-            errors.append(
-                f"{sid}: score outside [0,1]"
-            )
+    if len(rows) != 11:
+        errors.append(
+            f"Expected 11 validation domains; "
+            f"found {len(rows)}"
+        )
 
-        if weight <= 0:
-            errors.append(
-                f"{sid}: scoreable assessment has nonpositive weight"
-            )
-            continue
-
-        numerator += score * weight
-        denominator += weight
-
-    aggregate = (
-        numerator / denominator if denominator else None
-    )
-
-    return errors, warnings, counts, aggregate
+    return errors, counts
 
 
 def main():
     observations = load_csv(OBS_PATH)
     metrics = load_csv(METRIC_PATH)
     scorecard = load_csv(SCORECARD_PATH)
+    coverage = load_csv(COVERAGE_PATH)
 
     errors = []
     warnings = []
@@ -223,69 +275,115 @@ def main():
     errors.extend(e)
     warnings.extend(w)
 
-    e, w = validate_metrics(metrics, observations)
+    e, w = validate_metrics(
+        metrics,
+        observations,
+    )
     errors.extend(e)
     warnings.extend(w)
 
-    e, w, counts, aggregate = validate_scorecard(scorecard)
+    e, w, score_counts = validate_scorecard(
+        scorecard
+    )
     errors.extend(e)
     warnings.extend(w)
+
+    e, coverage_counts = validate_coverage(
+        coverage
+    )
+    errors.extend(e)
 
     temporal_counts = {}
+
     for row in observations:
-        key = row["temporal_classification"].strip()
-        temporal_counts[key] = temporal_counts.get(key, 0) + 1
+        key = row[
+            "temporal_classification"
+        ].strip()
+        temporal_counts[key] = (
+            temporal_counts.get(key, 0) + 1
+        )
 
     eligible_count = sum(
-        is_true(r["eligible_for_quantitative_validation"])
+        is_true(
+            r[
+                "eligible_for_quantitative_validation"
+            ]
+        )
         for r in observations
     )
 
     report = []
 
-    report.append("# Experiment A - Automated Validation")
+    report.append(
+        "# Experiment A - Automated Validation"
+    )
     report.append("")
-    report.append(f"Freeze date: {FREEZE_DATE.isoformat()}")
+    report.append(
+        f"Freeze date: {FREEZE_DATE.isoformat()}"
+    )
     report.append(
         f"Clean prospective window begins: "
         f"{POST_FREEZE_START.isoformat()}"
     )
-    report.append("")
 
+    report.append("")
     report.append("## Observation counts")
     report.append("")
 
     for key in sorted(temporal_counts):
-        report.append(f"- {key}: {temporal_counts[key]}")
+        report.append(
+            f"- {key}: {temporal_counts[key]}"
+        )
 
     report.append(
-        f"- quantitatively eligible observations: {eligible_count}"
+        "- quantitatively eligible observations: "
+        f"{eligible_count}"
     )
 
     report.append("")
     report.append("## Scorecard")
     report.append("")
 
-    for key, value in counts.items():
+    for key, value in score_counts.items():
         report.append(f"- {key}: {value}")
 
-    if aggregate is not None:
-        report.append(
-            f"- weighted structural/directional support: "
-            f"{aggregate:.1%}"
-        )
+    report.append(
+        "- no aggregate numerical support "
+        "percentage is reported"
+    )
+
+    report.append("")
+    report.append(
+        "## Validation-domain coverage"
+    )
+    report.append("")
+
+    for key, value in coverage_counts.items():
+        report.append(f"- {key}: {value}")
+
+    report.append(
+        "- no numerical domain-coverage index "
+        "is reported"
+    )
 
     report.append("")
     report.append("## Governance checks")
     report.append("")
 
     if errors:
-        report.append(f"- FAIL: {len(errors)} error(s)")
+        report.append(
+            f"- FAIL: {len(errors)} error(s)"
+        )
     else:
-        report.append("- PASS: no temporal or dependency errors")
+        report.append(
+            "- PASS: no temporal, dependency, "
+            "scorecard, or coverage errors"
+        )
 
     if warnings:
-        report.append(f"- warnings: {len(warnings)}")
+        report.append(
+            f"- warnings: {len(warnings)}"
+        )
     else:
         report.append("- warnings: 0")
 
@@ -293,6 +391,7 @@ def main():
         report.append("")
         report.append("### Errors")
         report.append("")
+
         for item in errors:
             report.append(f"- {item}")
 
@@ -300,6 +399,7 @@ def main():
         report.append("")
         report.append("### Warnings")
         report.append("")
+
         for item in warnings:
             report.append(f"- {item}")
 

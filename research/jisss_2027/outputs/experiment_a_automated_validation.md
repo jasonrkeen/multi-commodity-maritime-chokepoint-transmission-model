@@ -16,9 +16,16 @@ Clean prospective window begins: 2026-08-20
 - PARTIAL: 2
 - CONTRADICT: 0
 - NOT_COMPARABLE: 3
-- weighted structural/directional support: 90.5%
+- no aggregate numerical support percentage is reported
+
+## Validation-domain coverage
+
+- COVERED: 3
+- PARTIAL: 7
+- GAP: 1
+- no numerical domain-coverage index is reported
 
 ## Governance checks
 
-- PASS: no temporal or dependency errors
+- PASS: no temporal, dependency, scorecard, or coverage errors
 - warnings: 0
