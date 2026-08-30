@@ -1,0 +1,5 @@
+﻿review_id,domain,review_date,source,publication_date,measurement_period,classification,accepted_for_clean_validation,reason
+D09R01,production_shutins,2026-08-30,IEA Oil Market Report August 2026,2026-08-12,2026-07,retrospective_context,FALSE,"July Gulf production observation predates freeze"
+D09R02,production_shutins,2026-08-30,EIA Short-Term Energy Outlook August 2026,2026-08-11,2026-07,retrospective_context,FALSE,"5.5 mbpd observed shut-in estimate applies to July"
+D09R03,production_shutins,2026-08-30,EIA Short-Term Energy Outlook August 2026,2026-08-11,2026-08,forecast_context,FALSE,"August shut-in quantity is forecast/assumption rather than observed outcome"
+D09R04,production_shutins,2026-08-30,Reuters OPEC+ assessment,2026-08-27,2026-07,postfreeze_publication_retrospective_measurement,FALSE,"Post-freeze publication but quantitative production comparison refers to July"
