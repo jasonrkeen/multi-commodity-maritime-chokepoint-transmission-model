@@ -8,3 +8,6 @@ A_HORMUZ_AUG26_SHORTFALL,REUTERS_HORMUZ_AUG26_TRANSITS,REUTERS_HORMUZ_10D_AVG,ho
 A_LR2_FREIGHT_RECORD,SPGLOBAL_LR2_AUG27,,freight_stress_record,threshold_observed,107.72,usd_per_metric_ton,TRUE,"Observed all-time-high Middle East Gulf-Japan LR2 rate; supports freight-stress direction"
 A_SOUR_BASIS_AUG27,SPGLOBAL_DUBAI_PREMIUM_AUG27,,regional_sour_basis,observed_point,10.78,usd_per_bbl,TRUE,"Directly observed cash Dubai premium to same-month futures; comparable to direction and magnitude class, not frozen maximum"
 A_ULSD_PREWAR_CHANGE,SPGLOBAL_ULSD_AUG26,,mediterranean_ulsd_price_increase,derived_observed,69.88,percent,TRUE,"Aug. 26 ULSD assessment versus reported Feb. 27 prewar benchmark of $762.75/mt; supports lagged refined-product transmission"
+A_LNG_NEW_CANCELLATIONS_AUG27,REUTERS_QATAR_LNG_CANCEL_AUG27,,lng_disruption_persistence,observed_event,5,cargoes,TRUE,"Five newly cancelled Qatar LNG cargoes notified after freeze support persistence of LNG-disruption channel"
+A_FUJAIRAH_PIPELINE_AUG24,REUTERS_FUJAIRAH_PIPE_AUG24,,alternative_pipeline_flow,observed_point,1.8,million_bpd,TRUE,"Post-freeze observed utilization of Hormuz-bypass infrastructure supports substitution mechanism"
+A_SPR_AUG21_CONTEXT,EIA_SPR_AUG21,,spr_inventory_level,observed_point,289.726,million_barrels,FALSE,"Week spans pre/post freeze; inventory-buffer context only"
