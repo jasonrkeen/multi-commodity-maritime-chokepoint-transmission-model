@@ -1,4 +1,4 @@
-﻿# JISSS 2027 Canonical Manuscript Language
+# JISSS 2027 Canonical Manuscript Language
 
 ## Study Title
 
@@ -28,8 +28,8 @@ changes. Following temporal review, the evidence register contained 13 clean
 prospective observations, four mixed-window observations, and 12 retrospective
 observations. The final validation scorecard classified eight dimensions as
 SUPPORT, two as PARTIAL, three as NOT COMPARABLE, and none as CONTRADICT.
-Validation-domain coverage was classified as three COVERED, seven PARTIAL, and
-one GAP.
+Validation-domain coverage was classified as three COVERED and eight PARTIAL,
+with no domains remaining a complete GAP.
 
 No global validation percentage is reported. Exploratory weighted support and
 coverage indices developed during the research process were retired because the
@@ -75,8 +75,8 @@ contextual interpretation, or directly comparable numerical quantity.
 
 Across the final scorecard, eight dimensions were classified as SUPPORT, two as
 PARTIAL, three as NOT COMPARABLE, and none as CONTRADICT. Across the 11
-predefined validation domains, three are classified as COVERED, seven as
-PARTIAL, and one as a GAP.
+predefined validation domains, three are classified as COVERED and eight as
+PARTIAL, with no domain remaining a complete GAP.
 
 These classifications describe the availability, relevance, and comparability
 of evidence. They are not equivalent to a forecast-accuracy percentage or a
@@ -235,11 +235,13 @@ The study evaluates evidence across 11 predefined domains:
 Coverage is reported categorically:
 
 - COVERED: 3 domains;
-- PARTIAL: 7 domains; and
-- GAP: 1 domain.
+- PARTIAL: 8 domains; and
+- GAP: 0 domains.
 
-Ten of eleven domains therefore contain at least some evidence relevant to
-Experiment A, but most remain only partially testable.
+All eleven domains therefore contain at least some evidence relevant to
+Experiment A, but most remain only partially testable. Elimination of the
+complete evidence gap does not imply complete validation because eight domains
+still lack sufficient evidence for COVERED classification.
 
 No numerical domain-coverage index is reported.
 
@@ -389,19 +391,27 @@ testing.
 
 ### Production Shut-Ins
 
-Production shut-ins remain the single GAP domain.
+Production shut-ins are classified as PARTIAL.
 
-Post-freeze reporting corroborates continuing Gulf production constraints, but
-no qualifying observed production-loss magnitude measured wholly after August
-19 had been identified at the time of the assessment.
+On 4 September 2026, the Iraq Ministry of Oil reported through the Iraqi News
+Agency that current Iraqi crude-oil production had surpassed 3.0 million
+barrels per day. The observation is contemporaneous and wholly post-freeze,
+providing clean prospective evidence of a production-restoration outcome.
 
-Available quantitative figures measured July conditions, crossed the freeze,
-or represented forecasts.
+The evidence is classified as primary evidence class A because it is an
+officially reported observed production level rather than a forecast, quota
+target, or retrospective July estimate.
 
-The evidence gap is retained rather than filled using temporally inappropriate
-data.
+The observation does not provide an explicit restoration delta relative to the
+frozen Experiment A baseline. It therefore supports directional and structural
+validation of the production-restoration mechanism but does not permit a
+defensible point-error calculation for the modeled production-loss magnitude.
 
-### Freight and War-Risk Cost
+D09 consequently moves from GAP to PARTIAL rather than COVERED. Earlier July
+observations and forecast quantities remain excluded from clean prospective
+validation under the temporal validation rule.
+
+### Freight and War-Risk Cost### Freight and War-Risk Cost
 
 The freight and war-risk domain is PARTIAL.
 
@@ -476,7 +486,10 @@ The result is less numerically dramatic but more methodologically defensible.
 An important feature of the validation process is the preservation of negative
 findings and incomplete evidence.
 
-Production shut-ins remain a complete evidence gap.
+Production shut-ins no longer constitute a complete evidence gap. A clean
+post-freeze Iraqi production-restoration level is now available, but the domain
+remains PARTIAL because the observation does not provide an explicit restoration
+delta against the frozen model baseline.
 
 Inventory evidence remains partially constrained by a measurement window that
 crosses the freeze.
@@ -546,8 +559,8 @@ Across the final frozen-specification validation scorecard, eight dimensions
 were classified as SUPPORT, two as PARTIAL, three as NOT COMPARABLE, and none
 as CONTRADICT.
 
-Across the 11 validation domains, three are COVERED, seven PARTIAL, and one
-remains a GAP.
+Across the 11 validation domains, three are COVERED and eight are PARTIAL,
+with no domain remaining a complete GAP.
 
 These categories do not constitute a forecast-accuracy percentage.
 
