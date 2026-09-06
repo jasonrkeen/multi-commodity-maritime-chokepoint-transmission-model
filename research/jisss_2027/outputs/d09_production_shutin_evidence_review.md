@@ -2,58 +2,63 @@
 
 ## Status
 
-D09 remains GAP.
+D09 is now PARTIAL.
 
-No independently documented Middle East production-shut-in or production-
-restoration observation with a measurement window wholly after the
-19 August 2026 model freeze was identified in the evidence review conducted
-30 August 2026.
+A qualifying post-freeze production-restoration observation has been identified
+after the 19 August 2026 model freeze.
 
-## Evidence reviewed
+## Accepted post-freeze evidence
 
-### International Energy Agency - August 2026 Oil Market Report
+### Iraq Ministry of Oil / Iraqi News Agency - 4 September 2026
 
-The IEA reported Gulf oil production of approximately 23.9 million b/d in
-July 2026, approximately 8.3 million b/d below pre-war levels.
+The Iraq Ministry of Oil reported that current Iraqi crude-oil production had
+surpassed 3.0 million barrels per day.
 
-Classification: RETROSPECTIVE CONTEXT.
+Publication date: 4 September 2026.
 
-Reason for exclusion:
-The observation measures July production and the report was published
-12 August 2026, before the model freeze.
+Measurement period: Current production level reported on 4 September 2026.
 
-### U.S. Energy Information Administration - August 2026 STEO
+Classification: CLEAN POST-FREEZE OBSERVED PRODUCTION-RESTORATION LEVEL.
 
-EIA estimated approximately 5.5 million b/d of Middle East crude production
-was shut in during July and forecast continued shut-ins during August.
+Accepted for clean validation: YES.
 
-Classification: RETROSPECTIVE / FORECAST CONTEXT.
+Reason for acceptance:
+The observation is contemporaneous, wholly post-freeze, and represents an
+officially reported production outcome rather than a forecast, quota target,
+July estimate, or mixed-period aggregate.
 
-Reason for exclusion:
-The observed estimate applies to July. August shut-in quantities are model
-assumptions or forecasts rather than post-freeze observed outcomes.
+## Validation interpretation
 
-### Reuters - OPEC+ market assessment, 27 August 2026
+The observation closes the complete D09 evidence gap because it demonstrates
+an independently observable post-freeze production-restoration outcome.
 
-Reuters reported that war-related infrastructure damage and export constraints
-continued to prevent OPEC+ producers from fully translating announced output
-increases into market supply.
+D09 is classified as PARTIAL rather than COVERED because the reported value is
+a production level above 3.0 million b/d, not an explicitly quantified
+restoration delta relative to the frozen Experiment A model baseline.
 
-Classification: POST-FREEZE CONTEXTUAL CORROBORATION.
+Accordingly, the evidence supports directional and structural validation of
+the production-restoration mechanism but does not yet justify a precise
+point-error calculation against the modeled production-loss magnitude.
 
-Reason for exclusion:
-The article was published after the freeze, but its quantitative OPEC+
-production and market-share observations refer primarily to July 2026.
+## Earlier evidence retained for context
+
+The August 2026 IEA Oil Market Report remains retrospective context because
+its Gulf production estimate measures July conditions.
+
+The August 2026 EIA Short-Term Energy Outlook remains retrospective/forecast
+context because its observed shut-in estimate applies to July and its August
+figures are forecasts or assumptions.
+
+Reuters reporting published 27 August remains contextual corroboration where
+its quantitative production observations refer primarily to July.
 
 ## Governance conclusion
 
-The existence of continuing production constraints is independently
-corroborated, but no clean post-freeze production-loss magnitude has yet been
-identified.
+D09 moves from GAP to PARTIAL with primary evidence class A.
 
-D09 therefore remains unscored rather than being populated with a forecast,
-retrospective estimate, or synthetic proxy.
+The original 19 August 2026 model freeze remains unchanged. The new observation
+is entered only into the prospective validation layer and does not modify
+forecast inputs, scenario assumptions, or frozen model outputs.
 
-This exclusion is intentional and demonstrates application of the temporal
-validation rule even when including the evidence would improve apparent
-coverage.
+Further validation should seek a late-August or September Iraq or broader Gulf
+production series that permits direct calculation of the restoration magnitude.
