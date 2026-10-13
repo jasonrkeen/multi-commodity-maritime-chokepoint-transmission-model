@@ -4,6 +4,13 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Add an opt-in `--ibif` reporting layer labeled `replacement-0.1.0`.
+  This is a new implementation, not the unrecovered historical IBIF v0.2.
+  Per-commodity heuristic scores, source limitations, sensitivity comparisons,
+  and collection gaps are exported as JSON, CSV and Markdown after existing
+  model work completes. No operational thresholds or analytic-confidence
+  claims are supplied. See `docs/ibif_replacement.md`.
+
 ## [0.6.0] - 2026-08-21
 
 ### Added
