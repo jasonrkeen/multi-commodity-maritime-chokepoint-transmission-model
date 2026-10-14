@@ -67,7 +67,10 @@ sensitivity checks, not optimized or empirically selected alternatives.
 ## Evidence and decision boundaries
 
 Probability is the existing scenario prior; it is not inferred from the score.
-When sensor fusion is active, the evidence proxy is 100 times the horizon mean
+The field `sensor_evidence_proxy` is an **experimental upstream sensor diagnostic**,
+not a calibrated measure of evidence quality or reliability. Its existing field
+name is retained for compatibility. When sensor fusion is active and scenario
+sensor rows are available, the diagnostic is 100 times the horizon mean
 of the smaller of daily sensor confidence and track-continuity confidence.
 These upstream fields are scenario sensor-panel summaries repeated on commodity
 rows; they are not independent commodity-specific observations. Inactive sensors
@@ -76,6 +79,24 @@ confidence fields in [0, 1]. Sensor source types are copied from input metadata;
 labels are not independent source verification. `synthetic_demo` is explicitly
 identified as a demonstration. The evidence proxy does not establish reliability
 of priors, parameters, causal structure, business mapping, or the score itself.
+
+The upstream model independently maximizes confidence and continuity across
+chokepoints each day. Taking the minimum of those two maxima can combine different
+sources: pairs `(0.9, 0.1)` and `(0.1, 0.9)` produce `0.9`, although each source's
+paired minimum is `0.1`. This is a multi-source counterexample, not a measured
+error in the bundled single-chokepoint demonstration. Source pairing cannot be
+recovered from the aggregated daily fields.
+
+The sensor panel also interpolates observations and extends them with up to
+45 days of synthetic decay. Days without panel coverage contribute zeros to the
+horizon mean. Consequently, the diagnostic mixes assumed quality, coverage,
+decay and horizon length. A positive panel day is not necessarily an observed
+day; a zero is not necessarily measured poor quality. Do not use this diagnostic
+to rank evidence sources, validate probabilities or trigger decisions. A future
+evidence metric requires matched source/chokepoint/day records, route relevance,
+observed/interpolated/decayed/missing flags and separately reported coverage.
+The current JSON/CSV field and generated report labels are unchanged by this
+documentation correction; their values must be interpreted under these limits.
 
 `analytic_confidence` remains null and `escalation_status` remains `UNASSESSED`.
 Gross modeled exposure retains its original meaning: not realized financial
@@ -100,9 +121,14 @@ is bounded to those executions and does not establish calibration or historical
 v0.2 equivalence. See the separate dated validation evidence for actual results.
 
 Do not publish private v0.6.3 diagnostics or original archives with this patch.
-Empirical score calibration, organizational exposure mapping, independent
+Empirical score calibration, organizational exposure mapping, external
 methodological review, operational thresholds, and prospective validation remain
-future work. This candidate is local and unmerged.
+future work. This candidate remains a draft, unmerged PR.
+
+The first proposed calibration pilot uses public market outcomes, starting with
+Brent prices. See the [draft specification](ibif_calibration_spec.md) and
+[data-feasibility assessment](ibif_data_feasibility.md). This does not calibrate
+business losses, BCS weights, sensor reliability or operational thresholds.
 
 ## Review corrections and source-only equivalence runner
 
@@ -142,6 +168,9 @@ commands, exit codes, source hashes, output hashes, and timestamp exceptions.
 PDFs are checked as normalized bytes, extracted text and rendered pixels.
 Generated evidence belongs outside this source PR.
 
-The earlier six full runs validate the original replacement-0.1.0 contents at
-commit 678ba6b. They must not be described as executions of revised 0.1.1 source.
-Report later checks with their own settings and head/source hashes.
+Six full runs at commit `729b19373bc812f3c0db3a399610c399550c480f`
+validated replacement-0.1.1 at 240 days, 200 simulations, seed 20260812. All four
+comparisons passed with timestamp-only exceptions, identical PDF text/pixels,
+and exactly three added reports when enabled. Earlier 0.1.0 evidence at
+`678ba6b` is separate. The later calibration documentation revision is not a new
+full simulation run; no executable code or model-input change is included.

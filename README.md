@@ -386,6 +386,14 @@ See `CONTRIBUTING.md` before proposing changes, `RELEASE_CHECKLIST.md` before ta
 
 ## Recommended next build
 
+For the experimental IBIF replacement, the next step is the
+[draft public-market calibration pilot](docs/ibif_calibration_spec.md), supported
+by the [data-feasibility assessment](docs/ibif_data_feasibility.md).
+The existing `sensor_evidence_proxy` is an experimental upstream diagnostic;
+its source-pairing and coverage limitations are documented in
+[IBIF interpretation](docs/ibif_replacement.md#evidence-and-decision-boundaries).
+No business-loss calibration or operational threshold is established.
+
 Add mutually exclusive scenario-tree probabilities, Bayesian sensor updating,
 public grade-level cargo and refinery configuration data, country-level demand
 and inventory states, bilateral trade flows, and sector input-output tables.

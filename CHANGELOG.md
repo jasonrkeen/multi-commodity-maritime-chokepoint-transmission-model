@@ -4,8 +4,12 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Clarify the IBIF sensor field as an experimental upstream diagnostic with
+  source-pairing, interpolation and coverage limits; numerical behavior is unchanged.
+- Add a draft public-market calibration specification, event-ledger template and
+  source-backed feasibility assessment. No fitting or empirical validation claimed.
 - Review fixes (replacement-0.1.1): withhold sensor proxies without confirmed
-  observations; reject inventory-sum overflow and imprecise weight sums.
+  scenario sensor-row availability; reject inventory-sum overflow and imprecise weight sums.
 - Add a source-only, fail-closed three-way equivalence runner and regression tests.
 
 - Add an opt-in `--ibif` reporting layer labeled `replacement-0.1.0`.
