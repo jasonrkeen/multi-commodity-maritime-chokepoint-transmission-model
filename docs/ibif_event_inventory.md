@@ -1,19 +1,21 @@
 # IBIF event/control inventory and forecast-date availability
 
-Draft 0.2, reviewed October 13, 2026 (America/Chicago; retrievals October 14 UTC).
+Draft 0.3, reviewed October 13, 2026 (America/Chicago; retrievals October 14 UTC).
 This is a **retrospective feasibility inventory**, not a fitted backtest or a
 record of forecasts actually issued. PR #6 remains draft and unmerged.
 
 ## Result
 
 The inventory contains **9 proposed origins, 18 horizon records, 126 input-family
-checks and 17 source records**. Three disruption origins cover Suez, Panama and
+checks and 59 source records**. Three disruption origins cover Suez, Panama and
 the Red Sea. Six calendar-selected control candidates are retained, including
-failed controls. **Zero records qualify for replay**: no complete, dated input
-bundle or daily no-change-baseline vintage has been authenticated.
+failed controls. **Zero records qualify for replay**: no complete model-compatible input
+bundle has been accepted. Date-specific price vintages and regional stock/flow
+values have now been recovered; see the [recovery audit](ibif_input_recovery.md).
 
-Seven horizon records are excluded as quiet controls; five await a complete
-control screen; six disruption records are blocked on inputs. These categories
+All twelve control horizon records are excluded under the explicit broad
+incident-free rule in the recovery audit; six disruption records remain blocked
+on input mapping and cutoff policy. These categories
 are not missing observations encoded as zero. No target means, model errors,
 fitted weights, sample-size claims or calibration results were computed.
 
@@ -31,25 +33,26 @@ before fitting. The existing 2026 anchors remain excluded for the reasons in
 Control candidates are January 1 and July 1 of each event-origin year (2021,
 2023, 2024), at 00:00 UTC. All six are retained regardless of contamination.
 This is a transparent design choice made now, not historical preregistration.
-Screening is incomplete and spans the target horizon as well as the origin;
-an origin can be eligible for one horizon and unsuitable for another.
+Screening of these six candidates is complete under `incident-free-draft-0.3`,
+covering a 30-day pre-origin washout and the target horizon. This is not a census
+or proof of material crude-flow effects. All twelve windows are excluded.
 
 | Origin UTC | Candidate | Contemporaneous documentation identified | Decision |
 |---|---|---|---|
-| 2021-01-01 | Calendar control | December 2020 STEO, released December 8 | 30-day screen pending; 90-day window contains Suez blockage |
+| 2021-01-01 | Calendar control | December 2020 STEO, released December 8 | Both horizons excluded: January detention; 90-day window also contains Suez blockage |
 | 2021-03-27 | Suez blockage | MSC March 25 advisory; March STEO released March 9; EIA 2019 route context | Notice supports closure; remaining duration, crude loss and daily baseline unresolved |
-| 2021-07-01 | Calendar control | June STEO, released June 8 | Both horizons need a complete quiet-period screen |
-| 2023-01-01 | Calendar control | December 2022 STEO, released December 6 | Panama onset within target may contaminate; exact restriction timing unresolved |
-| 2023-07-01 | Calendar control | June STEO, released June 6 | Exclude as quiet: retrospective EIA account places Panama restrictions from January 2023 |
+| 2021-07-01 | Calendar control | June STEO, released June 8 | Both horizons excluded: July 29 Mercer Street attack in Oman approaches |
+| 2023-01-01 | Calendar control | December 2022 STEO, released December 6 | Both horizons excluded: January 9 GLORY assisted transit; material crude-flow effect unproved |
+| 2023-07-01 | Calendar control | June STEO, released June 6 | Both horizons excluded: July 30 Panama transit limit inside target |
 | 2023-11-02 | Panama restriction phase | ACP October 30 advisory and EIA October 31 article; October STEO released October 11 | Announced plans available; realized throughput and Brent mapping unresolved |
 | 2024-01-01 | Calendar control | December STEO, released December 12; EIA December 4 route context | Exclude as quiet: overlapping Panama/Red Sea disruption |
 | 2024-02-03 | Red Sea, late-crisis | EIA February 1 assessment; January STEO released January 9 | Dated flow context available; not an onset forecast or mapped supply-loss input |
-| 2024-07-01 | Calendar control | June STEO and June rerouting article, both June 11 | Exclude as quiet: documented continuing rerouting |
+| 2024-07-01 | Calendar control | June STEO and June rerouting article, both June 11 | Both horizons excluded: June 14 security notice inside pre-origin washout |
 
 The 2023-24 Panama and Red Sea cases are provisionally grouped together because
 their crises overlap and rerouting connects them. They are **not three proven
-independent event clusters**. The January 2021 90-day control shares the Suez
-cluster. Grouping is retrospective evaluation metadata, never an input feature.
+independent event clusters**. The January 2021 90-day control overlaps Suez and the Hormuz-approach detention;
+both are recorded for the excluded window. Grouping is retrospective evaluation metadata, never an input feature.
 Even excluded controls remain visible. No train/validation/test split is assigned.
 
 ## What the source dates establish
@@ -76,7 +79,8 @@ limits are announced plans, not realized vessel counts. The
 [October EIA article](https://www.eia.gov/todayinEnergy/detail.php?id=60842)
 provides energy-shipping context dominated by LPG. Neither source supplies a
 Brent-specific global supply-loss fraction. Its retrospective January restriction
-account flags controls; it is not admitted as an input at January or July origins.
+account flags controls; it is not admitted as an input at January or July origins. The precise July 30
+restriction date now supports exclusion of the July control windows.
 
 The [February Red Sea assessment](https://www.eia.gov/todayinenergy/detail.php?id=61363)
 provides dated route and flow information, with reporting lag. Its price example
@@ -107,8 +111,8 @@ unresolved or not applicable, never zero. These are metadata tables, not runtime
 input CSVs; none should be loaded into the model.
 
 The availability matrix distinguishes dated documents from usable numeric model
-inputs. Missing families include daily baseline vintages; mapped route exposure;
-inventory denominators; severity/duration/recovery assumptions; dependency and
+inputs. Recovered price vintages still need an approved publication cutoff/channel.
+Missing mappings include global route exposure and inventory denominators; severity/duration/recovery assumptions; dependency and
 lag parameters; policy/balancing schedules; elasticities/substitution; crude-grade
 and logistics parameters; and scenario priors. Synthetic sensors stay excluded.
 Business exposure and impact-scale parameters remain outside this price pilot.
@@ -126,10 +130,8 @@ The 2026 repository parameters are not historical observations.
 - [Cutoff exclusions](calibration_inventory/cutoff_exclusions.csv): concrete
   future-information rejection examples.
 
-First recover daily-price release vintages and contemporaneous crude exposure /
-inventory denominators for Suez and Red Sea. Then define and review a fixed
-assumption policy for parameters that were never observed. Expand and complete
-the notice/control screen, resolve the observation calendar, count independent
-eligible clusters, and freeze splits and acceptance criteria before fitting.
-Panama should remain a mapping feasibility case unless a defensible Brent channel
-is established. A reconstructed historical scenario must be labeled as such.
+The [recovery audit](ibif_input_recovery.md) now provides 18 price vintages,
+27 regional stock values, 24 origin-linked exposure/capacity records and 12
+completed exclusion decisions. The next gate is publication-cutoff and model
+mapping policy, followed by expanding the incident-free control pool. These
+recovered facts do not establish empirical calibration or a historical forecast.

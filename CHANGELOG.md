@@ -4,6 +4,10 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Recover dated Brent vintages and regional exposure/inventory facts; complete
+  the existing control exclusions under an explicit incident-free draft rule.
+  Global mappings and exact publication-cutoff policy remain unapproved.
+
 - Populate a retrospective event/control feasibility inventory and per-origin
   input-availability audit; all replay cases remain unaccepted pending input recovery.
 

@@ -28,11 +28,13 @@ Do not replace the original baseline with a guessed month.
 
 The source provides outcome-series access, but the following are unresolved:
 
-- Historical availability timestamps and revisions for inputs at each origin.
+- Intraday availability and latest-release policy: date-specific ALFRED vintages
+  are now recovered, but the exact last EIA print at UTC midnight remains unresolved.
 - A complete observation calendar distinguishing holidays and genuine gaps.
 - A versioned extraction policy and verification of the intended source-use and
   redistribution terms before distributing underlying data.
-- Eligible event/control origins, input bundles and sufficient independent clusters.
+- Complete model-compatible input bundles and sufficient independent clusters;
+  existing control screening is complete with all windows excluded under draft 0.3.
 - Benchmark alignment: Brent spot is not an organization invoice, a sour-crude
   spread, global economic exposure or the IBIF composite score.
 
@@ -70,7 +72,7 @@ ground truth by this documentation change.
 | IMF PortWatch | [Primary methodology](https://www.imf.org/-/media/files/publications/wp/2025/english/wpiea2025093-print-pdf.pdf) describes AIS-derived estimates and revisions | Candidate only: no daily chokepoint dataset retrieved/profiled here; verify availability, terms, vintages, commodity mapping and denominator |
 | Repository sensor rows | Explicitly synthetic demonstrations | Exclude from empirical sensor-performance training; obtain real paired observations if later needed |
 | Repository scenario/commodity parameters | Conditional paths and analyst assumptions | Recover contemporaneous per-origin versions; no automatic reuse as historical inputs |
-| Event and control ledger | [Populated feasibility inventory](ibif_event_inventory.md): 9 origins, 18 horizon records, 126 input checks | Zero accepted replays; complete notice screening and historical input recovery before splitting |
+| Event and control ledger | [Populated feasibility inventory](ibif_event_inventory.md): 9 origins, 18 horizon records, 126 input checks | Zero accepted replays; price/stock/flow facts recovered and existing controls screened; cutoff/mapping policy and expanded pool needed |
 | Organization-level losses | Not part of the selected public-market pilot | Separate data agreement and specification for any business-impact claim |
 
 PortWatch's modeled maritime measures would be complementary diagnostics, not
@@ -81,8 +83,8 @@ as both a predictor and its validation target requires explicit dependence check
 
 1. Adopt the [draft Brent target definition](ibif_calibration_spec.md) after
    resolving the calendar/alignment policy. Keep the pilot separate from BCS fitting.
-2. Expand the populated candidate inventory into a defined notice universe and
-   complete the control screen. Preserve all exclusions, including missing vintages.
+2. Expand the control pool after the [completed exclusion screen](ibif_input_recovery.md).
+   Preserve all exclusions; do not reinterpret shipping incidents as proven oil losses.
 3. Audit historical input availability and implement an as-of replay policy in a
    separate reviewed change. Do not use realized future duration or interpolated
    future sensor values.
@@ -93,3 +95,7 @@ as both a predictor and its validation target requires explicit dependence check
 The [event inventory and input availability matrix](ibif_event_inventory.md) now
 record candidate dates, dated sources, exclusions and unresolved input families.
 A calibrated model, fitted BCS weights and operational thresholds are not supported by the evidence assembled so far.
+
+The [historical-input recovery audit](ibif_input_recovery.md) supersedes the initial
+missing-vintage finding: 18 ALFRED vintages and dated regional stock/flow facts
+are recovered. Usable global parameter mappings and exact cutoff policy remain open.

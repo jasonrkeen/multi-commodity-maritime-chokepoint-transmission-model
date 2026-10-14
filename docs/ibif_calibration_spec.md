@@ -127,7 +127,7 @@ approved flow dataset.
 | Scope | Public market outcomes selected | This draft |
 | Primary target | Brent 30-day mean proposed | Approved calendar, alignment and completeness policy |
 | Outcomes | Public price snapshot accessible | Audited extraction and source-use terms |
-| Events and as-of inputs | [Candidate inventory populated](ibif_event_inventory.md); zero accepted replay rows | Complete notice screen, dated input bundles and replay manifests |
+| Events and as-of inputs | [Candidate inventory populated](ibif_event_inventory.md); zero accepted replay rows | Existing controls all excluded; expand pool and resolve cutoff/global input mappings |
 | Model replay | Not implemented or validated | Versioned as-of replay rules and regression evidence |
 | Splits and acceptance | Unresolved | Immutable split manifest, precision rationale and numerical criteria |
 | Fitting | Not started | Only after the preceding gates close |
@@ -142,3 +142,8 @@ The temporal evaluation rule follows [Forecasting: Principles and Practice,
 section 5.10](https://otexts.com/fpp3/toolbox.html#time-series-cross-validation).
 The primary target and gates here are project proposals, not that source's
 endorsement of this model.
+
+The [draft 0.3 recovery audit](ibif_input_recovery.md) proposes an explicit broad
+incident-free screen and records conservative ALFRED vintage candidates. It does
+not silently replace this specification's last-demonstrably-available baseline
+with a fixed-lag price, or approve regional stocks as global inventory days.

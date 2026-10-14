@@ -403,3 +403,6 @@ physical evidence changes scenario probabilities.
 
 The [IBIF event/control inventory](docs/ibif_event_inventory.md) records proposed
 forecast cutoffs and historical-input gaps; it is not a calibrated backtest.
+
+The [historical-input recovery audit](docs/ibif_input_recovery.md) records recovered
+price vintages, regional stock/flow values and the completed control exclusions.
