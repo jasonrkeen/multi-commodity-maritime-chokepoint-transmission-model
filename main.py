@@ -246,6 +246,7 @@ def main() -> None:
             daily, inputs.commodities,
             sensor_fusion_active=bool(catalog["use_sensor_fusion"]),
             source_statuses=source_statuses,
+            sensor_evidence_available=not sensor_rows.empty,
         )
         write_ibif_outputs(run_dir, assessment)
         print("IBIF replacement reports: experimental, uncalibrated; escalation UNASSESSED")

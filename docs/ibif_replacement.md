@@ -1,4 +1,4 @@
-# IBIF replacement 0.1.0
+# IBIF replacement 0.1.1
 
 This is a **new, experimental replacement**, authorized on October 13, 2026.
 It is not the unrecovered `chokepoint_ibif_integration_v0_2.zip` and does not
@@ -103,3 +103,45 @@ Do not publish private v0.6.3 diagnostics or original archives with this patch.
 Empirical score calibration, organizational exposure mapping, independent
 methodological review, operational thresholds, and prospective validation remain
 future work. This candidate is local and unmerged.
+
+## Review corrections and source-only equivalence runner
+
+Replacement 0.1.1 withholds the evidence proxy unless observation availability
+is explicitly confirmed. The CLI checks whether the selected scenario has sensor
+rows; API callers must pass `sensor_evidence_available=True` only when appropriate.
+This establishes availability, not source validity or coverage. Unknown or absent
+observations produce null even when sensor fusion is enabled. Initial inventory
+sum overflow and imprecisely normalized weights are rejected.
+
+The methodology remains provisional: independent peaks mix times, dimensions
+reuse related mechanisms, and horizon market-value scaling is arbitrary. None of
+these properties has been empirically corrected by the software review. Retain
+UNASSESSED escalation and null overall analytic confidence pending independent
+calibration. Sensor proxies are scenario-level summaries, not independent
+commodity-specific evidence. Scores can vary with horizon length even when the
+underlying disruption does not change; compare only consistent horizons/scales.
+
+The source-only runner is `tools/validate_ibif_equivalence.py`. It snapshots the
+actual candidate (including uncommitted, non-ignored files) rather than embedding
+hashes of a historical candidate. It requires a clean separate baseline checkout
+at the pinned commit, a fresh evidence directory outside both source trees, and
+an unchanged source snapshot through the run. Failures remain active with
+`python -O`; exceptions write FAIL instead of leaving a stale PASS.
+
+Install the model requirements plus `pypdf` and `Pillow`; install Poppler's
+`pdftoppm` on PATH. Then run:
+
+```powershell
+python tools/validate_ibif_equivalence.py --baseline C:/path/to/clean-baseline --candidate C:/path/to/candidate --output-dir C:/path/to/new-evidence
+```
+
+Defaults are both scenarios, all three modes, 240 days, 200 simulations,
+seed 20260812. `--days 30 --simulations 0` provides a shorter integration check;
+it is not the full protocol. Evidence records exact settings, package versions,
+commands, exit codes, source hashes, output hashes, and timestamp exceptions.
+PDFs are checked as normalized bytes, extracted text and rendered pixels.
+Generated evidence belongs outside this source PR.
+
+The earlier six full runs validate the original replacement-0.1.0 contents at
+commit 678ba6b. They must not be described as executions of revised 0.1.1 source.
+Report later checks with their own settings and head/source hashes.

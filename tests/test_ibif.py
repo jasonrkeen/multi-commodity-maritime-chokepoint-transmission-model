@@ -29,7 +29,23 @@ class IBIFTests(unittest.TestCase):
         ) for day in range(2)])
 
     def assess(self, **kwargs):
-        return build_ibif_assessment(self.daily, self.parameters, sensor_fusion_active=True, **kwargs)
+        return build_ibif_assessment(self.daily, self.parameters, sensor_fusion_active=True, sensor_evidence_available=True, **kwargs)
+
+    def test_enabled_but_absent_sensor_observations_withhold_proxy(self):
+        for available in (None, False):
+            result = build_ibif_assessment(self.daily, self.parameters,
+                sensor_fusion_active=True, sensor_evidence_available=available)
+            self.assertIsNone(result["commodities"][0]["sensor_evidence_proxy"])
+            self.assertFalse(result["sensor_evidence_available"])
+
+    def test_weight_sum_tolerance_is_absolute(self):
+        with self.assertRaises(ValueError):
+            ScoringConfig(weights=(.2, .2, .2, .15, .2500000005))
+
+    def test_inventory_sum_overflow_is_rejected(self):
+        self.parameters[["commercial_inventory_days", "strategic_reserve_days"]] = 1e308
+        with self.assertRaises(ValueError):
+            self.assess()
 
     def test_hand_calculated_scores_and_probability_units(self):
         r = self.assess()["commodities"][0]

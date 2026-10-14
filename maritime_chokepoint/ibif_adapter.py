@@ -7,7 +7,7 @@ import math
 import numpy as np
 import pandas as pd
 
-VERSION = "replacement-0.1.0"
+VERSION = "replacement-0.1.1"
 BASE_COMMIT = "6c1cc646fa9486817fe5d8c9f1f6fdd9eadfa451"
 DIMENSIONS = ("exposure", "dependency", "vulnerability", "transmission", "impact")
 REQUIRED = (
@@ -28,7 +28,7 @@ class ScoringConfig:
     def __post_init__(self) -> None:
         if (len(self.weights) != 5
                 or not all(math.isfinite(w) and w >= 0 for w in self.weights)
-                or not math.isclose(sum(self.weights), 1.0, abs_tol=1e-12)):
+                or not math.isclose(sum(self.weights), 1.0, rel_tol=0.0, abs_tol=1e-12)):
             raise ValueError("Five finite nonnegative weights must sum to one")
         if not math.isfinite(self.impact_market_multiple) or self.impact_market_multiple <= 0:
             raise ValueError("impact_market_multiple must be finite and positive")
@@ -56,6 +56,7 @@ def build_ibif_assessment(
     commodities: pd.DataFrame,
     *,
     sensor_fusion_active: bool,
+    sensor_evidence_available: bool | None = None,
     source_statuses: tuple[str, ...] = (),
     config: ScoringConfig | None = None,
 ) -> dict:
@@ -66,6 +67,7 @@ def build_ibif_assessment(
     threshold, organizational-loss estimate, or overall analytic-confidence score.
     """
     config = config or ScoringConfig()
+    evidence_present = sensor_fusion_active and sensor_evidence_available is True
     if daily.empty or daily.columns.duplicated().any():
         raise ValueError("Daily output must be nonempty with unique columns")
     if not {"scenario", "commodity", "day"}.issubset(daily.columns):
@@ -91,7 +93,7 @@ def build_ibif_assessment(
     if days != list(range(len(days))):
         raise ValueError("Expected complete integer days starting at zero")
     sensor_columns = ("sensor_confidence", "track_continuity_confidence")
-    if sensor_fusion_active:
+    if evidence_present:
         _numeric(daily, sensor_columns)
         if (daily[list(sensor_columns)] > 1).any().any():
             raise ValueError("Sensor confidence inputs must be fractions in [0, 1]")
@@ -103,6 +105,8 @@ def build_ibif_assessment(
         group = group.sort_values("day")
         params = parameters.loc[name]
         initial_inventory = float(params["commercial_inventory_days"] + params["strategic_reserve_days"])
+        if not math.isfinite(initial_inventory):
+            raise ValueError("Initial inventory sum must be finite")
         market_scale = float(params["annual_market_value_usd"]) * len(days) / 365.0
         if market_scale <= 0 or not math.isfinite(market_scale):
             raise ValueError("Horizon market-value scale must be finite and positive")
@@ -134,6 +138,8 @@ def build_ibif_assessment(
             gaps.append("Initial inventory is zero: depletion component omitted; other vulnerability components equally weighted")
         if not sensor_fusion_active:
             gaps.append("Sensor fusion inactive: sensor evidence proxy is unavailable")
+        if sensor_fusion_active and not evidence_present:
+            gaps.append("Sensor observation availability is missing or false: evidence proxy withheld")
         if not source_statuses:
             gaps.append("Sensor source status not supplied")
         elif any("synthetic" in str(s).lower() for s in source_statuses):
@@ -151,7 +157,7 @@ def build_ibif_assessment(
             "scores": scores, "business_consequence_score": bcs,
             "risk_pressure": probability * bcs,
             "sensor_evidence_proxy": (float(group[list(sensor_columns)].min(axis=1).mean()) * 100
-                                      if sensor_fusion_active else None),
+                                      if evidence_present else None),
             "analytic_confidence": None, "escalation_status": "UNASSESSED",
             "sensitivity_bcs": {"equal_weights": equal_weight, "impact_heavy": impact_heavy,
                                 "half_impact_scale": bcs + config.weights[4] * (_score(raw_impact_ratio * 2) - scores["impact"]),
@@ -165,6 +171,7 @@ def build_ibif_assessment(
         "calibration_status": "EXPERIMENTAL_UNCALIBRATED",
         "interpretation": "Gross modeled exposure; not realized loss or net GDP loss. Per-commodity scores are heuristic horizon descriptors, not forecasts or escalation decisions.",
         "sensor_fusion_active": bool(sensor_fusion_active),
+        "sensor_evidence_available": bool(evidence_present),
         "sensor_source_statuses": sorted(set(str(s) for s in source_statuses)),
         "weights": dict(zip(DIMENSIONS, config.weights)),
         "impact_market_multiple": config.impact_market_multiple,

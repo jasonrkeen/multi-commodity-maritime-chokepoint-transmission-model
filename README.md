@@ -1,7 +1,7 @@
 # Multi-Commodity Maritime Chokepoint Transmission Model
 
 Optional experimental reporting: `--ibif` adds the explicitly labeled
-[IBIF replacement 0.1.0](docs/ibif_replacement.md). This is a new, uncalibrated
+[IBIF replacement 0.1.1](docs/ibif_replacement.md). This is a new, uncalibrated
 adapter, not the unrecovered historical v0.2 package. See its documentation for
 scoring assumptions, collection gaps, and validation boundaries.
 

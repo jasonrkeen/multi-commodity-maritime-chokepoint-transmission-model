@@ -4,6 +4,10 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Review fixes (replacement-0.1.1): withhold sensor proxies without confirmed
+  observations; reject inventory-sum overflow and imprecise weight sums.
+- Add a source-only, fail-closed three-way equivalence runner and regression tests.
+
 - Add an opt-in `--ibif` reporting layer labeled `replacement-0.1.0`.
   This is a new implementation, not the unrecovered historical IBIF v0.2.
   Per-commodity heuristic scores, source limitations, sensitivity comparisons,
