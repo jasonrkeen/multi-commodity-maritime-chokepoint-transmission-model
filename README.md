@@ -400,3 +400,6 @@ and inventory states, bilateral trade flows, and sector input-output tables.
 Those additions would turn the current global transmission engine into a
 regional incidence model capable of estimating who absorbs the shock and how
 physical evidence changes scenario probabilities.
+
+The [IBIF event/control inventory](docs/ibif_event_inventory.md) records proposed
+forecast cutoffs and historical-input gaps; it is not a calibrated backtest.

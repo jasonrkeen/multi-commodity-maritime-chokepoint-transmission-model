@@ -6,8 +6,9 @@ anchors, the proposed Brent outcome source, and one potential flow-data family.
 This is not a comprehensive historical event search or a calibration run.
 
 **Proceed with dataset design; do not fit yet.** A public Brent history is
-accessible. No accepted event/origin/input bundle has been assembled, so there
-are zero accepted calibration ledger rows. This means zero qualified replay
+accessible. The candidate inventory now has 9 origins and 18 horizon records,
+but no complete input bundle has been accepted, so there are zero accepted
+calibration ledger rows. This means zero qualified replay
 cases, not zero public price observations. The original input CSVs remain intact.
 
 ## Proposed outcome source
@@ -69,7 +70,7 @@ ground truth by this documentation change.
 | IMF PortWatch | [Primary methodology](https://www.imf.org/-/media/files/publications/wp/2025/english/wpiea2025093-print-pdf.pdf) describes AIS-derived estimates and revisions | Candidate only: no daily chokepoint dataset retrieved/profiled here; verify availability, terms, vintages, commodity mapping and denominator |
 | Repository sensor rows | Explicitly synthetic demonstrations | Exclude from empirical sensor-performance training; obtain real paired observations if later needed |
 | Repository scenario/commodity parameters | Conditional paths and analyst assumptions | Recover contemporaneous per-origin versions; no automatic reuse as historical inputs |
-| Event and control ledger | Header-only schema provided | Populate from a prespecified notice universe and audit before splitting |
+| Event and control ledger | [Populated feasibility inventory](ibif_event_inventory.md): 9 origins, 18 horizon records, 126 input checks | Zero accepted replays; complete notice screening and historical input recovery before splitting |
 | Organization-level losses | Not part of the selected public-market pilot | Separate data agreement and specification for any business-impact claim |
 
 PortWatch's modeled maritime measures would be complementary diagnostics, not
@@ -80,8 +81,8 @@ as both a predictor and its validation target requires explicit dependence check
 
 1. Adopt the [draft Brent target definition](ibif_calibration_spec.md) after
    resolving the calendar/alignment policy. Keep the pilot separate from BCS fitting.
-2. Assemble a candidate disruption and quiet-period inventory, with contemporaneous
-   notice dates and source locators. Record all exclusions, including missing vintages.
+2. Expand the populated candidate inventory into a defined notice universe and
+   complete the control screen. Preserve all exclusions, including missing vintages.
 3. Audit historical input availability and implement an as-of replay policy in a
    separate reviewed change. Do not use realized future duration or interpolated
    future sensor values.
@@ -89,6 +90,6 @@ as both a predictor and its validation target requires explicit dependence check
    requirements. Do not infer sample adequacy from 9,102 daily prices.
 5. Freeze the specification, ledger and evaluation decisions before fitting.
 
-The feasible next deliverable is a populated, auditable event inventory and replay
-feasibility matrix. A calibrated model, fitted BCS weights and operational
-thresholds are not supported by the evidence assembled so far.
+The [event inventory and input availability matrix](ibif_event_inventory.md) now
+record candidate dates, dated sources, exclusions and unresolved input families.
+A calibrated model, fitted BCS weights and operational thresholds are not supported by the evidence assembled so far.

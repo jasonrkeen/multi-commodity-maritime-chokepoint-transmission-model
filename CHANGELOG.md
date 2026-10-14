@@ -4,6 +4,9 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Populate a retrospective event/control feasibility inventory and per-origin
+  input-availability audit; all replay cases remain unaccepted pending input recovery.
+
 - Clarify the IBIF sensor field as an experimental upstream diagnostic with
   source-pairing, interpolation and coverage limits; numerical behavior is unchanged.
 - Add a draft public-market calibration specification, event-ledger template and

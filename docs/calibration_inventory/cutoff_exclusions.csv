@@ -1,0 +1,6 @@
+origin_id,information,reason,source_id,use
+E20210327,Actual refloating date / total blockage duration,Unknown at origin; do not use retrospective incident duration,,EXCLUDE_AS_INPUT
+E20231102,Red Sea December 2023 flow decline in February 2024 article,Published after origin,eia_redsea,EXCLUDE_AS_INPUT
+C20240101,February 2024 Red Sea assessment,Published after origin; may screen retrospective contamination only,eia_redsea,LABEL_ONLY
+E20240203,June 2024 Cape rerouting assessment,Published after origin,eia_cape,EXCLUDE_AS_INPUT
+ALL,Current model inputs and current revised Brent history,No authenticated pre-origin input vintage,,NOT_HISTORICAL_INPUT_PROOF

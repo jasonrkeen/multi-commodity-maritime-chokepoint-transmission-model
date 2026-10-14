@@ -127,7 +127,7 @@ approved flow dataset.
 | Scope | Public market outcomes selected | This draft |
 | Primary target | Brent 30-day mean proposed | Approved calendar, alignment and completeness policy |
 | Outcomes | Public price snapshot accessible | Audited extraction and source-use terms |
-| Events and as-of inputs | Not assembled; zero accepted ledger rows | Event inventory, provenance and replay manifests |
+| Events and as-of inputs | [Candidate inventory populated](ibif_event_inventory.md); zero accepted replay rows | Complete notice screen, dated input bundles and replay manifests |
 | Model replay | Not implemented or validated | Versioned as-of replay rules and regression evidence |
 | Splits and acceptance | Unresolved | Immutable split manifest, precision rationale and numerical criteria |
 | Fitting | Not started | Only after the preceding gates close |
