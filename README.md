@@ -1,5 +1,10 @@
 # Multi-Commodity Maritime Chokepoint Transmission Model
 
+Optional experimental reporting: `--ibif` adds the explicitly labeled
+[IBIF replacement 0.1.1](docs/ibif_replacement.md). This is a new, uncalibrated
+adapter, not the unrecovered historical v0.2 package. See its documentation for
+scoring assumptions, collection gaps, and validation boundaries.
+
 Version 0.6.0 is a transparent scenario, Monte Carlo, structural-balancing, market-segmentation, and calibration-diagnostic model for estimating how maritime chokepoint disruption transmits through **crude oil, LNG, fertilizer, and helium**.
 
 The model combines physical-flow stress, pipeline bypass, emergency stock releases, external supply response, dynamic demand, crude-grade mismatch, segmented purchasing channels, route dependencies, inventory, sensor confidence, delayed downstream effects, and a separate conditional ecological branch. Dollar results are modeled **gross economic exposure**, not net GDP loss, firm valuation, or realized damages.
@@ -381,9 +386,23 @@ See `CONTRIBUTING.md` before proposing changes, `RELEASE_CHECKLIST.md` before ta
 
 ## Recommended next build
 
+For the experimental IBIF replacement, the next step is the
+[draft public-market calibration pilot](docs/ibif_calibration_spec.md), supported
+by the [data-feasibility assessment](docs/ibif_data_feasibility.md).
+The existing `sensor_evidence_proxy` is an experimental upstream diagnostic;
+its source-pairing and coverage limitations are documented in
+[IBIF interpretation](docs/ibif_replacement.md#evidence-and-decision-boundaries).
+No business-loss calibration or operational threshold is established.
+
 Add mutually exclusive scenario-tree probabilities, Bayesian sensor updating,
 public grade-level cargo and refinery configuration data, country-level demand
 and inventory states, bilateral trade flows, and sector input-output tables.
 Those additions would turn the current global transmission engine into a
 regional incidence model capable of estimating who absorbs the shock and how
 physical evidence changes scenario probabilities.
+
+The [IBIF event/control inventory](docs/ibif_event_inventory.md) records proposed
+forecast cutoffs and historical-input gaps; it is not a calibrated backtest.
+
+The [historical-input recovery audit](docs/ibif_input_recovery.md) records recovered
+price vintages, regional stock/flow values and the completed control exclusions.

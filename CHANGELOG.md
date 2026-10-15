@@ -4,6 +4,28 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Recover dated Brent vintages and regional exposure/inventory facts; complete
+  the existing control exclusions under an explicit incident-free draft rule.
+  Global mappings and exact publication-cutoff policy remain unapproved.
+
+- Populate a retrospective event/control feasibility inventory and per-origin
+  input-availability audit; all replay cases remain unaccepted pending input recovery.
+
+- Clarify the IBIF sensor field as an experimental upstream diagnostic with
+  source-pairing, interpolation and coverage limits; numerical behavior is unchanged.
+- Add a draft public-market calibration specification, event-ledger template and
+  source-backed feasibility assessment. No fitting or empirical validation claimed.
+- Review fixes (replacement-0.1.1): withhold sensor proxies without confirmed
+  scenario sensor-row availability; reject inventory-sum overflow and imprecise weight sums.
+- Add a source-only, fail-closed three-way equivalence runner and regression tests.
+
+- Add an opt-in `--ibif` reporting layer labeled `replacement-0.1.0`.
+  This is a new implementation, not the unrecovered historical IBIF v0.2.
+  Per-commodity heuristic scores, source limitations, sensitivity comparisons,
+  and collection gaps are exported as JSON, CSV and Markdown after existing
+  model work completes. No operational thresholds or analytic-confidence
+  claims are supplied. See `docs/ibif_replacement.md`.
+
 ## [0.6.0] - 2026-08-21
 
 ### Added
