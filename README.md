@@ -422,3 +422,6 @@ See [recovery decisions 0.6](docs/ibif_recovery_decisions_0_6.md) and
 [frozen replay rules](docs/ibif_replay_rules_0_6.md). All 38 replay windows remain blocked.
 
 [Public-data gap assessment 0.7](docs/ibif_public_gap_assessment_0_7.md) records source-level progress; freeze 0.6 and all 38 blocked windows remain unchanged.
+
+[Panama follow-up 0.8](docs/ibif_panama_conflict_0_8.md) retains the original-cutoff conflict.
+[Bounded sensitivity design 0.8](docs/ibif_bounded_sensitivity_0_8.md) specifies 689 hypothetical cases; the study has not been executed.

@@ -4,6 +4,10 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Investigate the Panama schedule discrepancy with two digest-verified later
+  archive witnesses; specify and hash 689 hypothetical sensitivity cases.
+  No sensitivity execution or changes to frozen historical replay decisions.
+
 - Assess 12 public-data gaps; authenticate four additional archive payloads,
   identify Panama November7 schedule conflict, and preserve all frozen replay blocks.
 
