@@ -1,6 +1,7 @@
 # Draft IBIF public market calibration specification
 
-Status: **DRAFT 0.2 — not preregistered, not fitted, not operational**.
+Status: **DRAFT 0.3 — evaluation not frozen, not fitted, not operational**.
+Construction and eligibility alone are frozen in [rules 0.6](ibif_replay_rules_0_6.md); all 38 rows are blocked.
 The public-market-first scope was selected on October 13, 2026. The October 22
 cutoff amendment and fixed control screen are linked below. Unresolved gates
 prevent treating this draft as a frozen evaluation protocol. These documentation
@@ -21,7 +22,7 @@ model's own dollar output. Flow observations are a secondary feasibility track.
 |---|---|
 | Commodity and benchmark | Crude oil; EIA Europe Brent Spot Price FOB, nominal USD/barrel, daily series `RBRTE` |
 | Primary horizon | 30 calendar days; 90 days is a separately reported secondary horizon |
-| Unit of evaluation | One independently documented disruption cluster and forecast origin; controls are separate documented quiet-period origins |
+| Unit of evaluation | One independently documented disruption cluster and forecast origin; background comparators are fixed quarterly calendar origins |
 | Forecast origin | A UTC timestamp at which all forecast inputs must already be published and accessible; observation dates alone do not establish availability |
 | Target window | Dates from the first full UTC day after the origin through day H inclusive |
 | Primary target | Arithmetic mean of published daily Brent prices on the valid observation dates in that window |
@@ -82,10 +83,11 @@ classification; valid and expected observation counts; exclusions; and review
 status. Retain an inclusion register even for excluded events.
 
 Build a candidate universe from a fixed set of official notices before examining
-model errors. Include quiet periods under a fixed calendar rule and record
+model errors. Retain all background periods under the fixed calendar rule and record
 overlapping crises as shared clusters. Do not select controls because prices
-were stable. The 2021-2024 quarterly control universe and rule are fixed in protocol 0.4;
-all 32 control windows are excluded. The disruption universe remains exploratory.
+were stable. Protocol 0.4 excluded all 32 windows from its strict quiet-control definition.
+Design 0.5 retains all 32 as unconditional calendar comparators; rules 0.6 freeze
+all 32 plus six event windows as blocked for replay. The disruption universe remains exploratory.
 Target data volume is not evidence of enough independent replayable events.
 
 ## Development and evaluation
@@ -129,8 +131,8 @@ approved flow dataset.
 | Scope | Public market outcomes selected | This draft |
 | Primary target | Brent 30-day mean proposed | Approved calendar, alignment and completeness policy |
 | Outcomes | Public price snapshot accessible | Audited extraction and source-use terms |
-| Events and as-of inputs | [Candidate inventory populated](ibif_event_inventory.md); zero accepted replay rows | 32 controls excluded under fixed rule; cutoff adopted; numeric global mappings and other inputs still missing |
-| Model replay | Not implemented or validated | Versioned as-of replay rules and regression evidence |
+| Events and as-of inputs | [Candidate inventory populated](ibif_event_inventory.md); zero accepted replay rows | 38 retained windows blocked under rules 0.6; cutoff and archive witnesses documented; usable global mappings missing |
+| Model replay | Not implemented or validated | Rules 0.6 frozen; replay compiler and regression evidence still missing |
 | Splits and acceptance | Unresolved | Immutable split manifest, precision rationale and numerical criteria |
 | Fitting | Not started | Only after the preceding gates close |
 
@@ -154,7 +156,7 @@ releases or authorize regional stocks as global buffers. The
 [32-window results](ibif_control_results_0_4.md) replace the informal quiet-period
 selection procedure. These amendments were made during historical feasibility
 work, before fitting, and are not prospective preregistration. Zero complete
-replay bundles are accepted; numeric mappings, scenario policy, outcome calendar,
+replay bundles are accepted; numeric mappings, scenario implementation, outcome calendar,
 splits and performance acceptance criteria remain gates.
 
 October 22 background-design amendment: [calendar comparators](ibif_background_design_0_5.md) retain all 32 quarterly windows as NOT_RUN;

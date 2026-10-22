@@ -417,3 +417,6 @@ calibration is accepted. Earlier recovery reports remain historical snapshots.
 October 22 background-design amendment: [calendar comparators](docs/ibif_background_design_0_5.md) retain all 32 quarterly windows as NOT_RUN;
 [physical recovery](docs/ibif_physical_inputs_0_5.md) adds two reference-year exposure candidates and partial US inventory evidence.
 These do not approve global buffers, historical replay, or calibration.
+
+See [recovery decisions 0.6](docs/ibif_recovery_decisions_0_6.md) and
+[frozen replay rules](docs/ibif_replay_rules_0_6.md). All 38 replay windows remain blocked.

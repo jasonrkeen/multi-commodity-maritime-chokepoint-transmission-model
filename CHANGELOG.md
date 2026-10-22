@@ -4,6 +4,11 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Freeze historical construction rules and 38 blocked replay decisions in 0.6;
+  recover digest-verified EI/EIA/DOE archive witnesses. Global usable stocks and
+  other execution gates remain unresolved; no fitting or runtime changes.
+
+
 - Specify unconditional background calendar comparators (16 origins, 32 windows),
   retaining prior strict exclusions as diagnostics; all executions remain NOT_RUN.
 - Recover matched 2022 crude/condensate exposure candidates and dated US SPR
