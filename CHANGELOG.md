@@ -4,6 +4,10 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Assess 12 public-data gaps; authenticate four additional archive payloads,
+  identify Panama November7 schedule conflict, and preserve all frozen replay blocks.
+
+
 - Freeze historical construction rules and 38 blocked replay decisions in 0.6;
   recover digest-verified EI/EIA/DOE archive witnesses. Global usable stocks and
   other execution gates remain unresolved; no fitting or runtime changes.

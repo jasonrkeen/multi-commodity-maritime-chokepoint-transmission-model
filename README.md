@@ -78,7 +78,7 @@ Each scenario supplies direct disruption paths. The dependency matrix adds lagge
 
 ```text
 dependent_severity(target,t)
-  = severity(source,t-lag) × transmission_weight(source,target)
+  = severity(source,t-lag) Ã— transmission_weight(source,target)
 ```
 
 Direct and transmitted severity are combined with a bounded union. This lets a Hormuz-only event create later pressure at Bab el-Mandeb and Suez through rerouting, congestion, insurance, and security spillover.
@@ -88,9 +88,9 @@ Direct and transmitted severity are combined with a bounded union. This lets a H
 ```text
 route_loss(i,j,t)
   = route_share(i,j)
-  × disruption_severity(j,t)
-  × [1 - reroute_capacity(i,j,t)]
-  × [1 - substitution(i,t)]
+  Ã— disruption_severity(j,t)
+  Ã— [1 - reroute_capacity(i,j,t)]
+  Ã— [1 - substitution(i,t)]
 ```
 
 Nodes in the same serial `route_group` use the maximum loss rather than a sum. Losses across distinct route groups use a bounded union.
@@ -124,12 +124,12 @@ net_market_gap(i,t) = max(balanced_supply_loss - demand_reduction_state, 0)
 price_shock(i,t)
   = min(price_cap,
         net_market_gap / short_run_adjustment_elasticity
-        × market_tightness
+        Ã— market_tightness
         + market_risk_premium)
 
 demand_target(i,t)
   = min(max_demand_reduction,
-        price_shock × demand_price_elasticity
+        price_shock Ã— demand_price_elasticity
         + policy_demand_reduction)
 ```
 
@@ -164,11 +164,11 @@ but no strategic reserve or emergency-release flow in the baseline.
 
 ```text
 regular_lag_target
-  = delayed_price_shock × downstream_input_cost_share
-    + delayed_shortage × availability_multiplier
+  = delayed_price_shock Ã— downstream_input_cost_share
+    + delayed_shortage Ã— availability_multiplier
 
 fertilizer_seasonal_target
-  = balanced_supply_loss(t-150 days) × seasonal_transmission_multiplier
+  = balanced_supply_loss(t-150 days) Ã— seasonal_transmission_multiplier
 ```
 
 An adaptive state converts those targets into daily downstream economic exposure. The fertilizer channel is intended to represent the fact that missed application may not appear in economic data until later crop outcomes.
@@ -195,14 +195,14 @@ The crude path distinguishes the global Brent proxy from a regional sour-complex
 ```text
 sour_gap
   = loss_after_structural_offsets / sour_dependent_market_share
-    × (1 - alternative_grade_compatibility)
+    Ã— (1 - alternative_grade_compatibility)
     - effective_reassigned_heavy_sour_share
 
 effective_reassigned_heavy_sour_share
   = reassigned_heavy_sour_share
-    × upstream_availability_share
-    × grid_availability_share
-    × terminal_availability_share
+    Ã— upstream_availability_share
+    Ã— grid_availability_share
+    Ã— terminal_availability_share
 
 regional_sour_price = brent_proxy + grade_and_logistics_basis
 ```
@@ -382,7 +382,7 @@ See `CONTRIBUTING.md` before proposing changes, `RELEASE_CHECKLIST.md` before ta
 - Sensor identity, staleness, recall, and validation-status fields are synthetic in the bundled demonstration.
 - Bypass capacity, emergency-release accessibility, and external supply response are source-anchored where possible but retain analyst timing assumptions.
 - Fertilizer is aggregated; urea, ammonia, DAP, sulfur, and potash need separate calendars and trade networks.
-- Helium availability depends on purity, containers, allocation, and industrial qualification—not only aggregate volume.
+- Helium availability depends on purity, containers, allocation, and industrial qualificationâ€”not only aggregate volume.
 
 ## Recommended next build
 
@@ -420,3 +420,5 @@ These do not approve global buffers, historical replay, or calibration.
 
 See [recovery decisions 0.6](docs/ibif_recovery_decisions_0_6.md) and
 [frozen replay rules](docs/ibif_replay_rules_0_6.md). All 38 replay windows remain blocked.
+
+[Public-data gap assessment 0.7](docs/ibif_public_gap_assessment_0_7.md) records source-level progress; freeze 0.6 and all 38 blocked windows remain unchanged.
