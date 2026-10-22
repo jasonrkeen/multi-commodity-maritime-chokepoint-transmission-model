@@ -406,3 +406,10 @@ forecast cutoffs and historical-input gaps; it is not a calibrated backtest.
 
 The [historical-input recovery audit](docs/ibif_input_recovery.md) records recovered
 price vintages, regional stock/flow values and the completed control exclusions.
+
+The [October 22 publication/mapping policy](docs/ibif_publication_mapping_policy.md)
+fixes the lagged ALFRED baseline and rejects unsupported global input conversions.
+The [expanded control screen](docs/ibif_control_results_0_4.md) covers 32 windows
+under a rule committed before the new search; all are excluded, including windows
+with completed routine maintenance restrictions. No complete replay or empirical
+calibration is accepted. Earlier recovery reports remain historical snapshots.

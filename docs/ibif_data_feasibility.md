@@ -1,5 +1,11 @@
 # IBIF public market data feasibility
 
+**October 22 update:** this earlier audit is retained as a historical snapshot.
+The [publication/mapping policy](ibif_publication_mapping_policy.md) now governs
+input selection; the [expanded fixed-rule screen](ibif_control_results_0_4.md)
+contains 32 control windows. The shared source register now has 72 records.
+Earlier counts and unresolved-policy statements below describe the prior revision.
+
 Assessed October 13, 2026, America/Chicago. Retrieval timestamps are recorded in
 UTC and may fall on October 14. Scope: the public repository's three validation
 anchors, the proposed Brent outcome source, and one potential flow-data family.

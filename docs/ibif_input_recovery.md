@@ -1,5 +1,11 @@
 # Historical input recovery and control screening
 
+**October 22 update:** this earlier audit is retained as a historical snapshot.
+The [publication/mapping policy](ibif_publication_mapping_policy.md) now governs
+input selection; the [expanded fixed-rule screen](ibif_control_results_0_4.md)
+contains 32 control windows. The shared source register now has 72 records.
+Earlier counts and unresolved-policy statements below describe the prior revision.
+
 Draft 0.3. Reviewed October 13, 2026, America/Chicago (October 14 UTC).
 This extends the [event inventory](ibif_event_inventory.md). It does not change
 runtime inputs, fit outcomes, or establish model calibration. PR #6 stays draft.

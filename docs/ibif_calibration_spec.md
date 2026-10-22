@@ -1,9 +1,10 @@
 # Draft IBIF public market calibration specification
 
-Status: **DRAFT 0.1 — not preregistered, not fitted, not operational**.
-The public-market-first scope was selected on October 13, 2026. The definitions
-below are concrete proposals for review; the unresolved gates prevent treating
-this draft as a frozen evaluation protocol. They do not change model inputs.
+Status: **DRAFT 0.2 — not preregistered, not fitted, not operational**.
+The public-market-first scope was selected on October 13, 2026. The October 22
+cutoff amendment and fixed control screen are linked below. Unresolved gates
+prevent treating this draft as a frozen evaluation protocol. These documentation
+decisions do not change runtime model inputs.
 
 ## Purpose and claim boundary
 
@@ -27,7 +28,7 @@ model's own dollar output. Flow observations are a secondary feasibility track.
 | Model mapping | Model `day=0` maps to the first target calendar day; align `implied_price_usd` for Crude oil to the same observation dates before averaging |
 | Primary loss | Absolute difference between predicted and observed horizon means, in USD/barrel |
 | Secondary diagnostics | Signed bias, daily path MAE on the same dates, peak-price error and 90-day results; do not select a winner by whichever metric looks best |
-| Baseline | Constant last Brent price demonstrably available at the issue timestamp; no-change prediction on every target date |
+| Baseline | Constant latest numeric Brent observation in the ALFRED vintage dated origin minus two calendar days; same baseline for model and comparator; policy 0.4 applies |
 
 Let D be the valid observed dates, P(d) the observed price and F(d) the model
 price. The primary observation is `mean(P(d), d in D)` and the primary error is
@@ -83,8 +84,9 @@ status. Retain an inclusion register even for excluded events.
 Build a candidate universe from a fixed set of official notices before examining
 model errors. Include quiet periods under a fixed calendar rule and record
 overlapping crises as shared clusters. Do not select controls because prices
-were stable. No event list is frozen yet; target data volume is not evidence that
-enough independent and replayable events exist.
+were stable. The 2021-2024 quarterly control universe and rule are fixed in protocol 0.4;
+all 32 control windows are excluded. The disruption universe remains exploratory.
+Target data volume is not evidence of enough independent replayable events.
 
 ## Development and evaluation
 
@@ -127,7 +129,7 @@ approved flow dataset.
 | Scope | Public market outcomes selected | This draft |
 | Primary target | Brent 30-day mean proposed | Approved calendar, alignment and completeness policy |
 | Outcomes | Public price snapshot accessible | Audited extraction and source-use terms |
-| Events and as-of inputs | [Candidate inventory populated](ibif_event_inventory.md); zero accepted replay rows | Existing controls all excluded; expand pool and resolve cutoff/global input mappings |
+| Events and as-of inputs | [Candidate inventory populated](ibif_event_inventory.md); zero accepted replay rows | 32 controls excluded under fixed rule; cutoff adopted; numeric global mappings and other inputs still missing |
 | Model replay | Not implemented or validated | Versioned as-of replay rules and regression evidence |
 | Splits and acceptance | Unresolved | Immutable split manifest, precision rationale and numerical criteria |
 | Fitting | Not started | Only after the preceding gates close |
@@ -143,7 +145,14 @@ section 5.10](https://otexts.com/fpp3/toolbox.html#time-series-cross-validation)
 The primary target and gates here are project proposals, not that source's
 endorsement of this model.
 
-The [draft 0.3 recovery audit](ibif_input_recovery.md) proposes an explicit broad
-incident-free screen and records conservative ALFRED vintage candidates. It does
-not silently replace this specification's last-demonstrably-available baseline
-with a fixed-lag price, or approve regional stocks as global inventory days.
+The [publication and mapping policy 0.4](ibif_publication_mapping_policy.md)
+explicitly replaces the draft 0.1 freshest-price baseline with a lagged ALFRED
+channel. Nine recovered price selections and 27 descriptive stock selections
+are audited against that rule. It does not authenticate original EIA intraday
+releases or authorize regional stocks as global buffers. The
+[fixed control protocol](ibif_control_protocol_0_4.md) and
+[32-window results](ibif_control_results_0_4.md) replace the informal quiet-period
+selection procedure. These amendments were made during historical feasibility
+work, before fitting, and are not prospective preregistration. Zero complete
+replay bundles are accepted; numeric mappings, scenario policy, outcome calendar,
+splits and performance acceptance criteria remain gates.

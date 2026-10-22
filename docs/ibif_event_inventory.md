@@ -1,5 +1,11 @@
 # IBIF event/control inventory and forecast-date availability
 
+**October 22 update:** this earlier audit is retained as a historical snapshot.
+The [publication/mapping policy](ibif_publication_mapping_policy.md) now governs
+input selection; the [expanded fixed-rule screen](ibif_control_results_0_4.md)
+contains 32 control windows. The shared source register now has 72 records.
+Earlier counts and unresolved-policy statements below describe the prior revision.
+
 Draft 0.3, reviewed October 13, 2026 (America/Chicago; retrievals October 14 UTC).
 This is a **retrospective feasibility inventory**, not a fitted backtest or a
 record of forecasts actually issued. PR #6 remains draft and unmerged.

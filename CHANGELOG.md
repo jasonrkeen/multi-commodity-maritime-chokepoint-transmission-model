@@ -4,9 +4,18 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Adopt a uniform two-day publication lag and explicit ALFRED baseline channel;
+  audit nine prices and 27 stock selections, including two earlier weekly releases.
+- Document equation-compatible exposure/inventory mappings and reject regional,
+  commodity and canal/pipeline substitutions lacking evidence.
+- Fix the quarterly 2021-2024 control universe before expanded screening; all
+  32 windows fail the broad incident/restriction rule, including maintenance.
+  No replay bundles or numerical global buffer mappings are approved.
+
 - Recover dated Brent vintages and regional exposure/inventory facts; complete
   the existing control exclusions under an explicit incident-free draft rule.
-  Global mappings and exact publication-cutoff policy remain unapproved.
+  At that revision global mappings and publication-cutoff policy were unapproved;
+  see the subsequent policy 0.4 decisions above.
 
 - Populate a retrospective event/control feasibility inventory and per-origin
   input-availability audit; all replay cases remain unaccepted pending input recovery.
