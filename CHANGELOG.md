@@ -4,6 +4,11 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Specify unconditional background calendar comparators (16 origins, 32 windows),
+  retaining prior strict exclusions as diagnostics; all executions remain NOT_RUN.
+- Recover matched 2022 crude/condensate exposure candidates and dated US SPR
+  physical constraints, with explicit source-custody and publication-date gaps.
+
 - Adopt a uniform two-day publication lag and explicit ALFRED baseline channel;
   audit nine prices and 27 stock selections, including two earlier weekly releases.
 - Document equation-compatible exposure/inventory mappings and reject regional,
@@ -39,7 +44,7 @@ All notable changes are documented here. The project follows semantic versioning
 
 ### Added
 
-- An upstream × electric-grid × terminal enabling-availability chain for reassigned heavy-sour barrels.
+- An upstream Ã— electric-grid Ã— terminal enabling-availability chain for reassigned heavy-sour barrels.
 - Daily and summary fields separating nominal reassignment, enabling availability, and effective reassignment.
 - Public USGS and Reuters source-register entries supporting the source-country infrastructure-fragility mechanism.
 - Two regression tests covering the availability chain and backward-compatible input defaults, bringing the suite to 26 tests.

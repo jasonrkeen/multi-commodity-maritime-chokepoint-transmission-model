@@ -413,3 +413,7 @@ The [expanded control screen](docs/ibif_control_results_0_4.md) covers 32 window
 under a rule committed before the new search; all are excluded, including windows
 with completed routine maintenance restrictions. No complete replay or empirical
 calibration is accepted. Earlier recovery reports remain historical snapshots.
+
+October 22 background-design amendment: [calendar comparators](docs/ibif_background_design_0_5.md) retain all 32 quarterly windows as NOT_RUN;
+[physical recovery](docs/ibif_physical_inputs_0_5.md) adds two reference-year exposure candidates and partial US inventory evidence.
+These do not approve global buffers, historical replay, or calibration.

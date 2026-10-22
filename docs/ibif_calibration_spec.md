@@ -156,3 +156,7 @@ selection procedure. These amendments were made during historical feasibility
 work, before fitting, and are not prospective preregistration. Zero complete
 replay bundles are accepted; numeric mappings, scenario policy, outcome calendar,
 splits and performance acceptance criteria remain gates.
+
+October 22 background-design amendment: [calendar comparators](ibif_background_design_0_5.md) retain all 32 quarterly windows as NOT_RUN;
+[physical recovery](ibif_physical_inputs_0_5.md) adds two reference-year exposure candidates and partial US inventory evidence.
+These do not approve global buffers, historical replay, or calibration.
