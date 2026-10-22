@@ -4,6 +4,10 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Implement an isolated standard-library sensitivity harness with frozen-file
+  verification, provenance, stock-accounting fixtures and fail-closed output status.
+  Preserve the original study design and all historical replay decisions.
+
 - Investigate the Panama schedule discrepancy with two digest-verified later
   archive witnesses; specify and hash 689 hypothetical sensitivity cases.
   No sensitivity execution or changes to frozen historical replay decisions.

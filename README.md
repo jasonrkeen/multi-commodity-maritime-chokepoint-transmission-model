@@ -425,3 +425,5 @@ See [recovery decisions 0.6](docs/ibif_recovery_decisions_0_6.md) and
 
 [Panama follow-up 0.8](docs/ibif_panama_conflict_0_8.md) retains the original-cutoff conflict.
 [Bounded sensitivity design 0.8](docs/ibif_bounded_sensitivity_0_8.md) specifies 689 hypothetical cases; the study has not been executed.
+
+[Standalone diagnostic harness](docs/ibif_sensitivity_harness_0_8.md) implements the frozen equations with fixture tests and a verification-only default. The full study remains unexecuted.
