@@ -1,0 +1,27 @@
+{
+  "status": "INPUTS_MATERIALIZED_STUDY_NOT_EXECUTED",
+  "study_executed": false,
+  "case_count": 3997,
+  "block_counts": {
+    "F": 2916,
+    "T": 1080,
+    "N": 1
+  },
+  "all_input_values_independently_recomputed": true,
+  "timing_settings": 36,
+  "materialization_manifest": {
+    "status": "INPUTS_MATERIALIZED_STUDY_NOT_EXECUTED",
+    "study_executed": false,
+    "source_sha256": "6269984e1ca4624a0a864f531aac8a69686a68e771bd03a94b01eddf306c4e2d",
+    "design_manifest_sha256": "9f73628eb85789764749fe051b11605a247d49bc1a8d95856f2a9af332868fb8",
+    "python_version": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "executable_sha256": "7ca24f26d6e3f463419ee4f537ddd3acd312c38fe45e678cce08572f26a8bd1a",
+    "case_count": 3997,
+    "inputs_sha256": "c1bb79147875c8eb7bce0e556a877a92035dbd5dfb3535049f583a06cb450d2f"
+  },
+  "materialization_manifest_sha256": "664fa63baf91fe3be32d36b5d40f3a928384820932da0a6a175ac63b3d01b5c6",
+  "prior_frozen_files_unchanged": true,
+  "completed_0_8_outputs_unchanged": true,
+  "completed_0_8_package_sha256": "141174e8769c877c97089eb8a343fb1754508099ca766ec2c77b1865222a231f"
+}

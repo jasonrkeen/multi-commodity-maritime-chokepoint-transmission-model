@@ -4,6 +4,10 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Implement separate 0.9 input loading, threshold materialization and contrast
+  classification with boundary-identity tests. Hash all 3,997 starting inputs;
+  do not run the study or change completed 0.8 outputs and replay decisions.
+
 - Specify separate depletion/timing study 0.9 with 3,997 fixed and threshold-scaled
   cases, explicit contrast rules and an execution gate. Preserve completed 0.8
   results and all frozen historical replay decisions; do not execute the new study.
