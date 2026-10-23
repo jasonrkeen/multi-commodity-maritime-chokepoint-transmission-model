@@ -4,6 +4,10 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Implement separate 0.9 trajectory and reporting modules with input provenance,
+  raw/tolerance event flags, complete boundary/pair outputs and fixture tests.
+  Verify actual inputs without running the study; preserve all prior freezes.
+
 - Implement separate 0.9 input loading, threshold materialization and contrast
   classification with boundary-identity tests. Hash all 3,997 starting inputs;
   do not run the study or change completed 0.8 outputs and replay decisions.
