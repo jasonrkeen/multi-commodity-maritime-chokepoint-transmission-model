@@ -4,6 +4,10 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Execute the unchanged 689-case hypothetical study; report ranges, endpoint
+  cases and 3,076 matched-factor pairs with independent output reconciliation.
+  No positive stock exhausts in this grid; no calibration or replay eligibility changes.
+
 - Implement an isolated standard-library sensitivity harness with frozen-file
   verification, provenance, stock-accounting fixtures and fail-closed output status.
   Preserve the original study design and all historical replay decisions.

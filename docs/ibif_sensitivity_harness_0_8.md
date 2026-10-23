@@ -1,6 +1,6 @@
 # Standalone sensitivity harness for design 0.8
 
-The standard-library-only `diagnostics.sensitivity` module implements the frozen 0.8 equations without importing or changing the production model. This is engineering implementation and fixture testing, not historical validation or calibration. The full 689-case study has not been executed as part of this implementation.
+The standard-library-only `diagnostics.sensitivity` module implements the frozen 0.8 equations without importing or changing the production model. This is engineering implementation and fixture testing, not historical validation or calibration. The implementation phase did not execute the study; the subsequent authorized run is documented separately in [executed results](ibif_sensitivity_results_0_8.md).
 
 ## Verification and future execution
 
@@ -29,7 +29,7 @@ Fixtures cover hand-calculated shortage/draw accounting to 1e-10, daily conserva
 
 All 689 input rows are loaded and validated, but tests simulate only engineering fixtures and a duplicate pair. Test success is not a sensitivity result, baseline equivalence, evidence for analyst bounds, or permission to change the 38 frozen blocked replay decisions. No fixed input, production-model code or production data is changed.
 
-The harness supplies daily and per-case outputs. Full-grid block-range/endpoint and matched-factor reporting remains a downstream analysis step after a separately identified study run. Do not infer expected values, confidence intervals, calibrated probabilities, historical forecasts or business impacts from these outputs. Preserve all interpretation limits in the frozen specification.
+The harness supplies daily and per-case outputs. The separate `diagnostics.sensitivity_report` postprocessor audits a completed run and produces full-grid block ranges, all endpoint ties and matched-factor comparisons. Do not infer expected values, confidence intervals, calibrated probabilities, historical forecasts or business impacts from these outputs. Preserve all interpretation limits in the frozen specification.
 
 ## Implementation validation
 
