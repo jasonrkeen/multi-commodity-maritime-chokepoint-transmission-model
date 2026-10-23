@@ -1,0 +1,10 @@
+{
+  "version": "0.8",
+  "status": "DESIGN_ONLY_NOT_RUN",
+  "hash_method": "SHA256 UTF-8 with CRLF normalized to LF",
+  "files": {
+    "docs/ibif_bounded_sensitivity_0_8.md": "ee06be3646f6e36e6f993f3646394b97c91f3dc24046fb1e256ef952502012a5",
+    "docs/calibration_inventory/sensitivity_design_0_8.json": "a16f41295c8b5e403a17e0721a91322d3e53dcd32037676dbb72e7b8c8e8face",
+    "docs/calibration_inventory/sensitivity_cases_0_8.csv": "501acc7b4d2be4604cbfbb107537e2f4f3fc82441a0bf41d0545720863e23f5f"
+  }
+}

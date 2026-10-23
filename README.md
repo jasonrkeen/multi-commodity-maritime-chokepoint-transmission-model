@@ -1,5 +1,10 @@
 # Multi-Commodity Maritime Chokepoint Transmission Model
 
+Optional experimental reporting: `--ibif` adds the explicitly labeled
+[IBIF replacement 0.1.1](docs/ibif_replacement.md). This is a new, uncalibrated
+adapter, not the unrecovered historical v0.2 package. See its documentation for
+scoring assumptions, collection gaps, and validation boundaries.
+
 Version 0.6.0 is a transparent scenario, Monte Carlo, structural-balancing, market-segmentation, and calibration-diagnostic model for estimating how maritime chokepoint disruption transmits through **crude oil, LNG, fertilizer, and helium**.
 
 The model combines physical-flow stress, pipeline bypass, emergency stock releases, external supply response, dynamic demand, crude-grade mismatch, segmented purchasing channels, route dependencies, inventory, sensor confidence, delayed downstream effects, and a separate conditional ecological branch. Dollar results are modeled **gross economic exposure**, not net GDP loss, firm valuation, or realized damages.
@@ -381,9 +386,50 @@ See `CONTRIBUTING.md` before proposing changes, `RELEASE_CHECKLIST.md` before ta
 
 ## Recommended next build
 
+For the experimental IBIF replacement, the next step is the
+[draft public-market calibration pilot](docs/ibif_calibration_spec.md), supported
+by the [data-feasibility assessment](docs/ibif_data_feasibility.md).
+The existing `sensor_evidence_proxy` is an experimental upstream diagnostic;
+its source-pairing and coverage limitations are documented in
+[IBIF interpretation](docs/ibif_replacement.md#evidence-and-decision-boundaries).
+No business-loss calibration or operational threshold is established.
+
 Add mutually exclusive scenario-tree probabilities, Bayesian sensor updating,
 public grade-level cargo and refinery configuration data, country-level demand
 and inventory states, bilateral trade flows, and sector input-output tables.
 Those additions would turn the current global transmission engine into a
 regional incidence model capable of estimating who absorbs the shock and how
 physical evidence changes scenario probabilities.
+
+The [IBIF event/control inventory](docs/ibif_event_inventory.md) records proposed
+forecast cutoffs and historical-input gaps; it is not a calibrated backtest.
+
+The [historical-input recovery audit](docs/ibif_input_recovery.md) records recovered
+price vintages, regional stock/flow values and the completed control exclusions.
+
+The [October 22 publication/mapping policy](docs/ibif_publication_mapping_policy.md)
+fixes the lagged ALFRED baseline and rejects unsupported global input conversions.
+The [expanded control screen](docs/ibif_control_results_0_4.md) covers 32 windows
+under a rule committed before the new search; all are excluded, including windows
+with completed routine maintenance restrictions. No complete replay or empirical
+calibration is accepted. Earlier recovery reports remain historical snapshots.
+
+October 22 background-design amendment: [calendar comparators](docs/ibif_background_design_0_5.md) retain all 32 quarterly windows as NOT_RUN;
+[physical recovery](docs/ibif_physical_inputs_0_5.md) adds two reference-year exposure candidates and partial US inventory evidence.
+These do not approve global buffers, historical replay, or calibration.
+
+See [recovery decisions 0.6](docs/ibif_recovery_decisions_0_6.md) and
+[frozen replay rules](docs/ibif_replay_rules_0_6.md). All 38 replay windows remain blocked.
+
+[Public-data gap assessment 0.7](docs/ibif_public_gap_assessment_0_7.md) records source-level progress; freeze 0.6 and all 38 blocked windows remain unchanged.
+
+[Panama follow-up 0.8](docs/ibif_panama_conflict_0_8.md) retains the original-cutoff conflict.
+[Bounded sensitivity design 0.8](docs/ibif_bounded_sensitivity_0_8.md) preserves the original specification for 689 hypothetical cases.
+
+[Standalone diagnostic harness](docs/ibif_sensitivity_harness_0_8.md) implements the frozen equations with fixture tests and a verification-only default.
+
+[Executed sensitivity results](docs/ibif_sensitivity_results_0_8.md) report all 689 cases, sampled ranges, endpoints and 3,076 matched-factor pairs. This is an uncalibrated hypothetical diagnostic; the 38 historical replay windows remain blocked.
+
+[Depletion and release-timing design 0.9](docs/ibif_depletion_design_0_9.md) separately freezes 3,997 follow-up cases. The [separate loader and threshold calculations](docs/ibif_depletion_inputs_0_9.md) materialize starting inputs.
+
+The [0.9 runner and reporting layer](docs/ibif_depletion_runner_0_9.md) default to input verification. The [executed 0.9 results](docs/ibif_depletion_results_0_9.md) report depletion thresholds, release timing and 42,174 matched pairs without changing the completed 0.8 study or historical replay eligibility.

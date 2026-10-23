@@ -1,0 +1,33 @@
+{
+  "version": "depletion-timing-freeze-0.9",
+  "status": "DESIGN_ONLY_NOT_RUN",
+  "hash_method": "SHA256 UTF-8 text with CRLF normalized to LF",
+  "files": {
+    "docs/ibif_depletion_design_0_9.md": "9247c85e594932610a1d8479e00b2764b37fc886bd67060f33a1146b02fcd06e",
+    "docs/calibration_inventory/depletion_design_0_9.json": "6fbe936ea3da0fc8e5e8e94b18034731600f88111825782448807b7d5c1d75e0",
+    "docs/calibration_inventory/depletion_cases_0_9.csv": "de13f39741d5e1748d84f12288e5bcbc2021580d6431a62253a0e5a8df451f8a"
+  },
+  "preserved_prior_files": {
+    "diagnostics/sensitivity.py": "d61db5d3a95abc091ff371aaf49e0452d062a784ccc767e61760fe609c07f94c",
+    "diagnostics/sensitivity_report.py": "e30932840171573f7f8c1a65586c5dd7f3fcf0c77cf6f966a42f9a63b22b886a",
+    "docs/calibration_inventory/archive_witnesses_0_6.csv": "556f4cb89f016d5d54ff1d85c7aaa690d135f4d7746f2cbba1fe01787a4143f5",
+    "docs/calibration_inventory/background_membership_0_5.csv": "ef44ab1a39998411691f7ffb40bab756a102db424d9760d52621e61ce518a0e2",
+    "docs/calibration_inventory/exposure_candidates_0_5.csv": "ce615298535355f2010a0446718a0c077abe82488597ce522d0f6e03ad2548ba",
+    "docs/calibration_inventory/freeze_manifest_0_6.json": "9b6513c9ead3ddad69285595e98aa646118d803816bbd2c9c0ef116a6668e695",
+    "docs/calibration_inventory/origins.csv": "874f76f7a500b3b6b3c8205b69a4034785cda5c5f975c039e6b7a62070920523",
+    "docs/calibration_inventory/physical_facts_0_5.csv": "2d51bf393a7fdc58ea29508fb38f27bdeb9685943a28a3ab4d1a80511458d9cb",
+    "docs/calibration_inventory/publication_decisions_0_4.csv": "4fbf005415f8fa230488e27348b22a7d1206f8c5a7814c108059f60234220583",
+    "docs/calibration_inventory/replay_eligibility_0_6.csv": "12f6c1e7a339e32b002973fb0697455477eaa04029887bd10bf3b31cb5148207",
+    "docs/calibration_inventory/replay_policy_0_6.json": "7efd95a84d76bdd52b87c268fd4f77239923cf946d46931a60f31bee31cece6f",
+    "docs/calibration_inventory/sensitivity_cases_0_8.csv": "501acc7b4d2be4604cbfbb107537e2f4f3fc82441a0bf41d0545720863e23f5f",
+    "docs/calibration_inventory/sensitivity_design_0_8.json": "a16f41295c8b5e403a17e0721a91322d3e53dcd32037676dbb72e7b8c8e8face",
+    "docs/calibration_inventory/sensitivity_execution_receipt_0_8.json": "3980fef985694a9f7c3499eb1827082ed33bc882247d35f57166a6bd2689a855",
+    "docs/calibration_inventory/sensitivity_manifest_0_8.json": "a554b0e83c0a621fb087745e93603d32cef408f18c26cd3d43fd8a9bf4305fae",
+    "docs/ibif_background_design_0_5.md": "80ba825551093a90cf3d9f486f14353199a2e45cf38aada447549b04dcb36e52",
+    "docs/ibif_bounded_sensitivity_0_8.md": "ee06be3646f6e36e6f993f3646394b97c91f3dc24046fb1e256ef952502012a5",
+    "docs/ibif_publication_mapping_policy.md": "123123b67e619950b959b53ef48e3bc83028e509a5c8fe3173d62336dcfa4e3b",
+    "docs/ibif_recovery_decisions_0_6.md": "bc74fcfbf44cdbb92b27c3c714e18aa917c72f0b83fed8c15d4177955730a1b1",
+    "docs/ibif_replay_rules_0_6.md": "12d466f14c79790ee6776bb88e9a60160bd09d519c21ce50b33aa834fae5c63c",
+    "docs/ibif_sensitivity_results_0_8.md": "8fc61c0eb37fc19d4ceee14e9dc1adc5b991ed615ea714f548a6739b15570e6f"
+  }
+}

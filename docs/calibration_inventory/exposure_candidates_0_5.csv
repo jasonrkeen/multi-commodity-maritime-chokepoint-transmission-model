@@ -1,0 +1,3 @@
+candidate_id,numerator_fact,denominator_fact,reference_period,fraction,percentage,joint_publication_date,earliest_policy_origin,status,limitations
+suez_sumed,suez_sumed_cc_2022,world_cc_2022,2022,0.04435846568995897,4.435846568995897,2023-12-04,2023-12-06T00:00:00Z,REFERENCE_YEAR_CANDIDATE_NOT_RUNTIME_ACCEPTED,Cross-publisher condensate harmonization; production not demand; stale at 2024 origins; serial-route overlap; no canal-pipeline split
+bab,bab_cc_2022,world_cc_2022,2022,0.04066192688246239,4.066192688246239,2023-12-04,2023-12-06T00:00:00Z,REFERENCE_YEAR_CANDIDATE_NOT_RUNTIME_ACCEPTED,Cross-publisher condensate harmonization; production not demand; stale at 2024 origins; serial-route overlap; no canal-pipeline split

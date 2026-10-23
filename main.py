@@ -44,6 +44,10 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--output-dir", type=Path, default=ROOT / "outputs")
     parser.add_argument("--list-scenarios", action="store_true")
     parser.add_argument(
+        "--ibif", action="store_true",
+        help="Add experimental replacement IBIF reports (uncalibrated; reporting only)",
+    )
+    parser.add_argument(
         "--compare-scenarios",
         action="store_true",
         help="Write a deterministic side-by-side scenario comparison",
@@ -229,6 +233,23 @@ def main() -> None:
         print(f"Calibration grid: {calibration_paths[0].resolve()}")
         print(f"Calibration summary: {calibration_paths[1].resolve()}")
     print(f"Outputs: {run_dir.resolve()}")
+    if args.ibif:
+        from maritime_chokepoint.ibif_adapter import build_ibif_assessment
+        from maritime_chokepoint.ibif_reporting import write_ibif_outputs
+
+        sensor_rows = inputs.sensors.loc[inputs.sensors["scenario"] == args.scenario]
+        source_statuses = (
+            tuple(sensor_rows["source_type"].dropna().astype(str).unique())
+            if "source_type" in sensor_rows else ()
+        )
+        assessment = build_ibif_assessment(
+            daily, inputs.commodities,
+            sensor_fusion_active=bool(catalog["use_sensor_fusion"]),
+            source_statuses=source_statuses,
+            sensor_evidence_available=not sensor_rows.empty,
+        )
+        write_ibif_outputs(run_dir, assessment)
+        print("IBIF replacement reports: experimental, uncalibrated; escalation UNASSESSED")
 
 
 if __name__ == "__main__":

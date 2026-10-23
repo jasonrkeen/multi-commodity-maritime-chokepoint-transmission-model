@@ -1,0 +1,19 @@
+{
+  "version": "freeze-0.6",
+  "created_at_utc": "2026-10-22T19:41:47.801414+00:00",
+  "hash_method": "SHA256 of UTF-8 text with CRLF normalized to LF; no other transformations",
+  "files": {
+    "docs/ibif_replay_rules_0_6.md": "12d466f14c79790ee6776bb88e9a60160bd09d519c21ce50b33aa834fae5c63c",
+    "docs/ibif_recovery_decisions_0_6.md": "bc74fcfbf44cdbb92b27c3c714e18aa917c72f0b83fed8c15d4177955730a1b1",
+    "docs/calibration_inventory/archive_witnesses_0_6.csv": "556f4cb89f016d5d54ff1d85c7aaa690d135f4d7746f2cbba1fe01787a4143f5",
+    "docs/calibration_inventory/replay_eligibility_0_6.csv": "12f6c1e7a339e32b002973fb0697455477eaa04029887bd10bf3b31cb5148207",
+    "docs/calibration_inventory/replay_policy_0_6.json": "7efd95a84d76bdd52b87c268fd4f77239923cf946d46931a60f31bee31cece6f",
+    "docs/ibif_background_design_0_5.md": "80ba825551093a90cf3d9f486f14353199a2e45cf38aada447549b04dcb36e52",
+    "docs/calibration_inventory/background_membership_0_5.csv": "ef44ab1a39998411691f7ffb40bab756a102db424d9760d52621e61ce518a0e2",
+    "docs/ibif_publication_mapping_policy.md": "123123b67e619950b959b53ef48e3bc83028e509a5c8fe3173d62336dcfa4e3b",
+    "docs/calibration_inventory/publication_decisions_0_4.csv": "4fbf005415f8fa230488e27348b22a7d1206f8c5a7814c108059f60234220583",
+    "docs/calibration_inventory/origins.csv": "874f76f7a500b3b6b3c8205b69a4034785cda5c5f975c039e6b7a62070920523",
+    "docs/calibration_inventory/physical_facts_0_5.csv": "2d51bf393a7fdc58ea29508fb38f27bdeb9685943a28a3ab4d1a80511458d9cb",
+    "docs/calibration_inventory/exposure_candidates_0_5.csv": "ce615298535355f2010a0446718a0c077abe82488597ce522d0f6e03ad2548ba"
+  }
+}
