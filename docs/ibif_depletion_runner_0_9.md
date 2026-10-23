@@ -1,6 +1,6 @@
 # Separate 0.9 trajectory runner and reporting layer
 
-Status: **IMPLEMENTED_AND_FIXTURE_TESTED_STUDY_NOT_EXECUTED**. The 3,997-case study has not run. Tests use small temporary engineering runs; their completed statuses refer only to those fixtures. Completed 0.8 study files, the original 0.9 design and materialized inputs, and historical replay decisions remain unchanged.
+Implementation-phase status: **IMPLEMENTED_AND_FIXTURE_TESTED_STUDY_NOT_EXECUTED**. That phase used small temporary engineering runs only. The subsequent authorized full run is recorded separately in [executed 0.9 results](ibif_depletion_results_0_9.md). Completed 0.8 study files, the original 0.9 design and materialized inputs, and historical replay decisions remain unchanged.
 
 ## Input verification and execution boundary
 

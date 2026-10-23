@@ -1,5 +1,7 @@
 # 0.9 loader and threshold calculations
 
+This document records input preparation. The subsequent authorized full run is documented in [executed 0.9 results](ibif_depletion_results_0_9.md); original frozen design and materialization metadata remain unchanged.
+
 Status: **INPUTS_MATERIALIZED_STUDY_NOT_EXECUTED**. The separate `diagnostics.depletion_inputs` module loads and validates the frozen 3,997-case design and calculates starting stocks from its fixed threshold formulas. It contains no study trajectory runner and does not modify the 0.8 harness or results.
 
 The default command verifies the independent 0.9 manifest pin, all design files, all 21 preserved prior-file hashes, exact schema, unique IDs, block counts and nullable-field meanings. Empty T-block stock cells remain null in the frozen design. They become numerical physical stocks only in the separately written materialized-input file; multipliers are never treated as stock days.

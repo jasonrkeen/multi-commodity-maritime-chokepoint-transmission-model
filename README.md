@@ -430,6 +430,6 @@ See [recovery decisions 0.6](docs/ibif_recovery_decisions_0_6.md) and
 
 [Executed sensitivity results](docs/ibif_sensitivity_results_0_8.md) report all 689 cases, sampled ranges, endpoints and 3,076 matched-factor pairs. This is an uncalibrated hypothetical diagnostic; the 38 historical replay windows remain blocked.
 
-[Depletion and release-timing design 0.9](docs/ibif_depletion_design_0_9.md) separately freezes 3,997 follow-up cases. The [separate loader and threshold calculations](docs/ibif_depletion_inputs_0_9.md) now materialize starting inputs; the study has not run.
+[Depletion and release-timing design 0.9](docs/ibif_depletion_design_0_9.md) separately freezes 3,997 follow-up cases. The [separate loader and threshold calculations](docs/ibif_depletion_inputs_0_9.md) materialize starting inputs.
 
-The [0.9 runner and reporting layer](docs/ibif_depletion_runner_0_9.md) are implemented and fixture-tested. Full-study execution remains separate; the default runner only verifies inputs.
+The [0.9 runner and reporting layer](docs/ibif_depletion_runner_0_9.md) default to input verification. The [executed 0.9 results](docs/ibif_depletion_results_0_9.md) report depletion thresholds, release timing and 42,174 matched pairs without changing the completed 0.8 study or historical replay eligibility.

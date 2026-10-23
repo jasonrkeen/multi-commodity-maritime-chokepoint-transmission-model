@@ -4,6 +4,10 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Execute all 3,997 frozen 0.9 cases and report depletion thresholds, timing effects
+  and 42,174 matched pairs. Audit all cumulative identities and matched records;
+  preserve the completed 0.8 study and all historical replay decisions.
+
 - Implement separate 0.9 trajectory and reporting modules with input provenance,
   raw/tolerance event flags, complete boundary/pair outputs and fixture tests.
   Verify actual inputs without running the study; preserve all prior freezes.
