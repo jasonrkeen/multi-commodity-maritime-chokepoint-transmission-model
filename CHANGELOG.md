@@ -4,6 +4,10 @@ All notable changes are documented here. The project follows semantic versioning
 
 ## [Unreleased]
 
+- Specify separate depletion/timing study 0.9 with 3,997 fixed and threshold-scaled
+  cases, explicit contrast rules and an execution gate. Preserve completed 0.8
+  results and all frozen historical replay decisions; do not execute the new study.
+
 - Execute the unchanged 689-case hypothetical study; report ranges, endpoint
   cases and 3,076 matched-factor pairs with independent output reconciliation.
   No positive stock exhausts in this grid; no calibration or replay eligibility changes.
