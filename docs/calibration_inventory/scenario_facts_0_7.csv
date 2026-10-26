@@ -1,0 +1,7 @@
+fact_id,origin_id,metric,value,units,reference_window,source_id,locator,decision
+P_NOV7_PROSE,E20231102,booking_slots,24,slots_per_day,2023-11-07,acp_48,PDF page1 prose,CONFLICT_NOT_MODEL_INPUT
+P_NOV7_TABLE,E20231102,booking_slots,25,slots_per_day,2023-11-07,acp_48,PDF page1 final heading and page2 first table,CONFLICT_NOT_MODEL_INPUT
+P_DEC,E20231102,booking_slots,22,slots_per_day,2023-12-01/2023-12-31,acp_48,PDF pages1-2,ANNOUNCED_PLAN_NOT_CRUDE_FLOW
+P_JAN,E20231102,booking_slots,20,slots_per_day,2024-01-01/2024-01-31,acp_48,PDF pages1 and3,ANNOUNCED_PLAN_NOT_CRUDE_FLOW
+P_FEB,E20231102,booking_slots,18,slots_per_day,2024-02-01 onward until further notice,acp_48,PDF pages1 and3,OPEN_ENDED_PLAN_NOT_CRUDE_FLOW
+R_DEC,E20240203,crude_route_flow_change,-18,percent,December2023 versus January-November2023 average,eia_redsea,paragraph starting After the attacks,OBSERVED_LAGGED_ROUTE_FLOW_NOT_FUTURE_SEVERITY

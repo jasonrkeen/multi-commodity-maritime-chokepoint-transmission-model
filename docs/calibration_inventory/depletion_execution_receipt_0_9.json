@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "case_count": 3997,
+  "daily_rows": 719460,
+  "summary_rows": 11991,
+  "independent_cumulative_identity_checks": 11991,
+  "all_matched_records_checked": 126522,
+  "matched_pairs": 42174,
+  "prior_study_and_frozen_files_unchanged": true,
+  "execution_commit": "fda33bf216cc17d6787c0d3d121c197c190d284f",
+  "run_manifest_sha256": "317b8d3aa6aaedcb2570dcc8b27b04ea49433db70eee86efa543e623ce272782",
+  "run_outputs_sha256": {
+    "daily.csv": "f618c7833cb315b6615b4d17a8fabe67ad61fcaca914c671e17c6bb6187a02f6",
+    "summaries.json": "2ae5fc54d449e7df04f362778c421ca68a0f622ebaec36e6588ad7c0cc4628f4"
+  },
+  "report_manifest": {
+    "status": "HYPOTHETICAL_REPORT_COMPLETE_NOT_CALIBRATED",
+    "source_hashes": {
+      "depletion_runner.py": "fc3bad433dd95663e166cdc8f3b0ff01ac261fd9de21ff3a241bf091051bf203",
+      "depletion_report.py": "913408eb6e2cef1dd82b8be0cbca972a59cb36ce85a1fdc201a12947d45211ff",
+      "depletion_inputs.py": "6269984e1ca4624a0a864f531aac8a69686a68e771bd03a94b01eddf306c4e2d",
+      "sensitivity.py": "d61db5d3a95abc091ff371aaf49e0452d062a784ccc767e61760fe609c07f94c"
+    },
+    "run_manifest_sha256": "317b8d3aa6aaedcb2570dcc8b27b04ea49433db70eee86efa543e623ce272782",
+    "matched_pairs": 42174,
+    "pair_horizons": 126522,
+    "tie_policy": "All exact case endpoint ties in ranges; matched endpoint representative/count in matched_ranges; every pair retained in JSONL.",
+    "null_policy": "Null day deltas remain null; excluded from extrema, counted separately.",
+    "interpretation": "Sampled ranges only. No calibration, confidence intervals, historical replay or case weighting.",
+    "outputs_sha256": {
+      "ranges.json": "fa74d385fb0b1c4d95ecae8ef1e9d12f0bfa84331222669c0068df2733dda1de",
+      "matched_ranges.json": "1319549b5799f626f9cf62619865298b5c6e5fb24a2108a35b14dd29c66fc000",
+      "boundaries.json": "b33bb89c4986cd01e1787a00c8507692819eea73f4aaaaa2f03a23a18d92bf03",
+      "cases.json": "c1bb79147875c8eb7bce0e556a877a92035dbd5dfb3535049f583a06cb450d2f",
+      "matched_pairs.jsonl": "8a615292f84e50382c1bc33a7677f6ac296435b775aaca7fa5942381e1e961cf",
+      "REPORT.md": "3cb2ac161bdf2c3a6f8442c23c865b01899c26d46620e5163b3d4730e41d2806"
+    }
+  }
+}

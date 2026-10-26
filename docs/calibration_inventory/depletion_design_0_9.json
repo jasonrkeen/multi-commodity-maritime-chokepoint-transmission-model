@@ -1,0 +1,38 @@
+{
+  "version": "depletion-timing-design-0.9",
+  "status": "SPECIFIED_NOT_EXECUTED",
+  "prior_study_report_commit": "2ff26f01f6c852b54165b6274d31b5343733d991",
+  "outcome_informed_followup": true,
+  "days": 180,
+  "summary_horizons": [
+    30,
+    90,
+    180
+  ],
+  "threshold_materialization_horizon": 180,
+  "case_count": 3997,
+  "block_counts": {
+    "F": 2916,
+    "T": 1080,
+    "N": 1
+  },
+  "daily_row_count": 719460,
+  "summary_row_count": 11991,
+  "reference_production_million_bpd": 81.157,
+  "route_reference_million_bpd": {
+    "suez_sumed": 3.6
+  },
+  "absolute_classification_tolerance": 1e-10,
+  "empty_csv_fields_mean": "null_not_zero",
+  "cases_file": "depletion_cases_0_9.csv",
+  "historical_replay": false,
+  "production_model_run": false,
+  "randomness": false,
+  "materialized": false,
+  "threshold_formulas": {
+    "R_H": "sum(min(G(t), requested_release(t)))",
+    "C_H": "sum(G(t))-min(initial_strategic_stock,R_H)",
+    "T_initial_S": "alpha*R_180",
+    "T_initial_C": "beta*C_180(T_initial_S)"
+  }
+}

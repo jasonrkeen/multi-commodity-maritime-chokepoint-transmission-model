@@ -1,0 +1,32 @@
+{
+  "version": "replay-0.6",
+  "decision_date": "2026-10-22",
+  "model_commit": "7659db2f2f760b056ea8384cad295920dc38830f",
+  "publication_lag_calendar_days": 2,
+  "price_max_age_days": 14,
+  "stock_max_age_days": 35,
+  "operational_reconfirmation_max_age_days": 7,
+  "annual_flow_max_age_calendar_months": 24,
+  "horizons": [
+    30,
+    90
+  ],
+  "scenario_type": "ANNOUNCED_SCHEDULE_CONDITIONAL_ONLY",
+  "unknown_action": "BLOCK",
+  "default_parameter_fallback": false,
+  "monte_carlo": false,
+  "sensor_fusion": false,
+  "compiler_status": "NOT_IMPLEMENTED_OR_VALIDATED",
+  "accepted_replays": 0,
+  "required_gates": [
+    "price",
+    "exposure",
+    "inventory",
+    "notice_coverage",
+    "severity",
+    "duration_recovery",
+    "other_parameters",
+    "replay_implementation",
+    "outcomes"
+  ]
+}

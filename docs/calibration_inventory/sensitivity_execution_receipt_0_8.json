@@ -1,0 +1,44 @@
+{
+  "status": "HYPOTHETICAL_DIAGNOSTIC_EXECUTED_NOT_CALIBRATED",
+  "execution_commit": "2d466655267b86e9921c59782fd86606e1cd7b8f",
+  "harness_sha256": "d61db5d3a95abc091ff371aaf49e0452d062a784ccc767e61760fe609c07f94c",
+  "runtime": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+  "design_manifest_sha256": "a554b0e83c0a621fb087745e93603d32cef408f18c26cd3d43fd8a9bf4305fae",
+  "replay_manifest_sha256": "9b6513c9ead3ddad69285595e98aa646118d803816bbd2c9c0ef116a6668e695",
+  "audit": {
+    "status": "PASS",
+    "cases": 689,
+    "daily_rows": 124020,
+    "summaries": 2067,
+    "unique_parameter_cases": 657,
+    "duplicate_case_rows": 32,
+    "frozen_manifests": "UNCHANGED",
+    "all_summary_metrics_recomputed": true,
+    "all_daily_balances_checked": true,
+    "full_study_executed": true,
+    "historical_replay": false,
+    "matched_pairs": 3076,
+    "matched_pair_horizons": 9228
+  },
+  "run_outputs_sha256": {
+    "daily.csv": "e7d27c3aa7a82c4aadc7af82501203dc19c4c2cd578d33179cd2dc44a505fe1e",
+    "summaries.json": "dc7f2a8a6f5aad2f8b2023bfd71d2e4379862ee2ad2fefc28f3165f013bc626a"
+  },
+  "run_manifest_sha256": "50c4de0b8bd761e267ce183ab3cd173c8bf92751d54dd62bfa7529f5278d3c42",
+  "report_manifest": {
+    "run_manifest_sha256": "50c4de0b8bd761e267ce183ab3cd173c8bf92751d54dd62bfa7529f5278d3c42",
+    "report_source_sha256": "e30932840171573f7f8c1a65586c5dd7f3fcf0c77cf6f966a42f9a63b22b886a",
+    "outputs_sha256": {
+      "cases.json": "688244a35ba7c85eb0905335cc43d8fbb4b782dd0ec94ffeda7814e74dd29815",
+      "ranges.json": "ab5ca76937bdfdfdfaab257cc8da4fa761c3635dac5687088774636fa66e39f4",
+      "matched_pairs.json": "2b11209c68b19c576330310db80717010a1b66fa75fbd0f8b3bea5658c81ad01",
+      "matched_ranges.json": "88f335d4e3f9095622357854e28e2181ca00543d7bca8ca630ab32a7b9648767",
+      "audit.json": "64295178c98a9f18a7fd59b4e2f410adf6aba2e6abb584edce29d35eba1a240a"
+    },
+    "matching_rule": "Within block; all unordered distinct levels; all other modeled inputs identical; delta high minus low; categorical route ordered lexically.",
+    "tie_rule": "All exact floating-point ties; rounding only for display.",
+    "null_rule": "Depletion deltas null when either case never depletes; exclude nulls from extrema and count them.",
+    "interpretation": "Sampled hypothetical extrema, not confidence bounds or calibration. No weighting or across-case expected value."
+  },
+  "geometric_maximum_check": 361.87650286556914
+}

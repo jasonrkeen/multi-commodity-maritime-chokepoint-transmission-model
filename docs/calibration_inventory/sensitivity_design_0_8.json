@@ -1,0 +1,32 @@
+{
+  "version": "bounded-sensitivity-design-0.8",
+  "status": "SPECIFIED_NOT_EXECUTED",
+  "reference_production_million_bpd": 81.157,
+  "route_reference_million_bpd": {
+    "suez_sumed": 3.6,
+    "bab": 3.3
+  },
+  "days": 180,
+  "summary_horizons": [
+    30,
+    90,
+    180
+  ],
+  "case_count": 689,
+  "block_counts": {
+    "A": 324,
+    "B": 108,
+    "C": 256,
+    "N": 1
+  },
+  "reroute_time_constant_days": 10,
+  "optional_price_proxy": {
+    "base": 82,
+    "elasticity": 0.18,
+    "premium_cap": 1.5
+  },
+  "historical_replay": false,
+  "production_model_run": false,
+  "randomness": false,
+  "case_file": "sensitivity_cases_0_8.csv"
+}
