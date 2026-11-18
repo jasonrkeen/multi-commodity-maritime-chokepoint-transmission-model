@@ -1,15 +1,16 @@
 # Multi-Commodity Maritime Chokepoint Transmission Model
 
-Optional experimental reporting: `--ibif` adds the explicitly labeled
-[IBIF replacement 0.1.1](docs/ibif_replacement.md). This is a new, uncalibrated
-adapter, not the unrecovered historical v0.2 package. See its documentation for
-scoring assumptions, collection gaps, and validation boundaries.
-
 Version 0.6.0 is a transparent scenario, Monte Carlo, structural-balancing, market-segmentation, and calibration-diagnostic model for estimating how maritime chokepoint disruption transmits through **crude oil, LNG, fertilizer, and helium**.
 
 The model combines physical-flow stress, pipeline bypass, emergency stock releases, external supply response, dynamic demand, crude-grade mismatch, segmented purchasing channels, route dependencies, inventory, sensor confidence, delayed downstream effects, and a separate conditional ecological branch. Dollar results are modeled **gross economic exposure**, not net GDP loss, firm valuation, or realized damages.
 
 Version 0.6.0 adds an enabling-availability chain for reassigned heavy-sour barrels. Nominal reassignment is discounted by upstream, electric-grid, and terminal availability before it can reduce the regional grade gap. The three factors default to 100%, so existing scenario results remain unchanged until a source-country fragility assumption is explicitly configured. This public release contains no third-party practitioner packet, packet schema, signal taxonomy, or packet-derived diagnostic.
+
+## Release and provenance
+
+The published release is [v0.6.0](https://github.com/jasonrkeen/multi-commodity-maritime-chokepoint-transmission-model/releases/tag/v0.6.0). Subsequent experimental work on the default branch is not a new release.
+
+A separately audited v0.6.3 research package requires provenance and version reconciliation before it can be represented as the same public release. That reconciliation is not established here. Use the published tag when referring to v0.6.0; identify the commit and experimental module when referring to later work.
 
 ## What changed in version 0.6
 
@@ -289,6 +290,13 @@ python main.py --scenario hormuz_30d_severe --days 240 --simulations 0
 ```
 
 The default 200 draws are for iteration. Use `--simulations 5000` only after the scenario and assumptions are stable.
+
+## Experimental research
+
+Optional experimental reporting: `--ibif` adds the explicitly labeled
+[IBIF replacement 0.1.1](docs/ibif_replacement.md). This is a new, uncalibrated
+adapter, not the unrecovered historical v0.2 package. See its documentation for
+scoring assumptions, collection gaps, and validation boundaries.
 
 ## Outputs
 
