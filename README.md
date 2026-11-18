@@ -12,6 +12,20 @@ The published release is [v0.6.0](https://github.com/jasonrkeen/multi-commodity-
 
 A separately audited v0.6.3 research package requires provenance and version reconciliation before it can be represented as the same public release. That reconciliation is not established here. Use the published tag when referring to v0.6.0; identify the commit and experimental module when referring to later work.
 
+## Reproduction and validation status
+
+Evidence reviewed November 18, 2026. Passing software checks do not establish empirical calibration of scenario probabilities or economic losses.
+
+| Item | Status and evidence |
+| --- | --- |
+| Version and revision | Published release: [v0.6.0](https://github.com/jasonrkeen/multi-commodity-maritime-chokepoint-transmission-model/releases/tag/v0.6.0). The default-branch CI evidence below applies to [5beb334](https://github.com/jasonrkeen/multi-commodity-maritime-chokepoint-transmission-model/tree/5beb3341b562a432a52905d06f4ec02388bfe62e), which includes later experimental work; use `git checkout 5beb3341b562a432a52905d06f4ec02388bfe62e` for that revision. See [release and provenance](#release-and-provenance). |
+| Inputs and dates | Curated CSV configuration is bundled under `data/input/`. The [source register](data/input/source_register.csv) records access dates from August 11–19, 2026 and separates public anchors, analyst assumptions, and synthetic sensor signals. Those dates do not establish current market conditions. |
+| Environment | Install with `python -m pip install -r requirements.txt` in a virtual environment. The linked CI run passed Python 3.11–3.14 and a minimum-dependency job. [Dependency ranges](requirements.txt) are bounded but not an exact environment lock. |
+| Reproduce from the repository root | Deterministic smoke scenario: `python main.py --scenario sensor_fused_hormuz --days 30 --simulations 0 --output-dir outputs/status_check`. For seeded Monte Carlo examples, see [Quick start](#quick-start). |
+| Expected outputs | Under `outputs/status_check/sensor_fused_hormuz/`: scenario and commodity tables, run metadata, charts, and an executive brief. The smoke command disables Monte Carlo and uses synthetic sensor inputs; it is not a live sensing run. |
+| Verified checks | [CI run 44365366748](https://github.com/jasonrkeen/multi-commodity-maritime-chokepoint-transmission-model/actions/runs/44365366748) passed the unit suite and deterministic 30-day smoke scenario across the Python matrix and minimum-dependency job. Local suite: `python -m unittest discover -s tests -v`. |
+| Validation limits | Scenario priors and many behavioral parameters remain analyst assumptions; gross exposure is not realized loss or net GDP impact. Target-band comparisons are diagnostics. Experimental IBIF sensitivity results are hypothetical, and 38 historical replay windows remain blocked; see [replay rules](docs/ibif_replay_rules_0_6.md) and [0.9 results](docs/ibif_depletion_results_0_9.md). |
+
 ## What changed in version 0.6
 
 - Reassigned heavy-sour supply is multiplied by upstream, grid, and terminal availability before reducing the regional sour gap.
